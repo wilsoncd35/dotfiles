@@ -1,0 +1,123 @@
+{
+  "main module": {
+    "prefix": "mainModule",
+    "description": "Execute this module directory or export.",
+    "body": [
+      "if (typeof require !== 'undefined' && require.main === module) {",
+      "  // Execute this module directly then output configuration.",
+      "  /* eslint-disable-next-line */",
+      "  console.log(JSON.stringify(config, null, 2));",
+      "} else {",
+      "  // Require this module and it will export.",
+      "  module.exports = config;",
+      "}"
+    ]
+  },
+  "console.log callback": {
+    "prefix": "conc",
+    "body": [
+      "console.log(`[error]>>>${JSON.stringify(error)}`);",
+      "console.log(`[response]>>>${JSON.stringify(response)}`);",
+      "console.log(`[text]>>>${JSON.stringify(JSON.parse(response.text))}`);"
+    ],
+    "description": "Log output to console. Useful for quick test."
+  },
+  "console.log misc": {
+    "prefix": "conm",
+    "body": ["console.log(`[$1]>>>${JSON.stringify($1, null, 1)}`);"],
+    "description": "Log output to console. Useful for quick test."
+  },
+  "console.log": {
+    "prefix": "cl",
+    "body": ["console.log($1);$0"],
+    "description": "Basic console.log() statement."
+  },
+  "mocha describe": {
+    "prefix": "desc",
+    "body": ["describe('$1', function () {", "  $0", "});"],
+    "description": "mocha describe"
+  },
+  "mocha it": {
+    "prefix": "it",
+    "body": ["it('$1', function () {", "  $0", "});"],
+    "description": "mocha it"
+  },
+  "mocha it payload": {
+    "prefix": "itpayload",
+    "body": [
+      "it('payload.', function () {",
+      "  expect(requestResponse).to.exist;",
+      "  // Capture payload for reporting (report/index.json).",
+      "  addContext(this, {",
+      "    title: 'response',",
+      "    value: JSON.stringify(requestResponse),",
+      "  });",
+      "  addContext(this, {",
+      "    title: 'text',",
+      "    value: JSON.parse(requestResponse.text),",
+      "  });",
+      "});"
+    ]
+  },
+  "mocha after payload": {
+    "prefix": "afterpayload",
+    "body": [
+      "after('payload.', function () {",
+      "  expect(requestResponse).to.exist;",
+      "  // Capture payload for reporting (report/index.json).",
+      "  addContext(this, {",
+      "    title: 'response',",
+      "    value: JSON.stringify(requestResponse),",
+      "  });",
+      "  addContext(this, {",
+      "    title: 'text',",
+      "    value: JSON.parse(requestResponse.text),",
+      "  });",
+      "});"
+    ]
+  },
+  "mocha beforeEach": {
+    "prefix": "beforee",
+    "body": ["beforeEach(function () {", "  $0", "});"],
+    "description": "mocha beforeEach"
+  },
+  "mocha before": {
+    "prefix": "before",
+    "body": ["before(function () {", "  $0", "});"],
+    "description": "mocha before"
+  },
+  "mocha afterEach": {
+    "prefix": "aftere",
+    "body": ["afterEach(function () {", "  $0", "});"],
+    "description": "mocha afterEach"
+  },
+  "mocha after": {
+    "prefix": "after",
+    "body": ["after(function () {", "  $0", "});"],
+    "description": "mocha after"
+  },
+  "chai expect": {
+    "prefix": "ea",
+    "body": ["expect($1).to.equal($2);"]
+  },
+  "eslint rule": {
+    "prefix": "eslr",
+    "body": ["'$1': 'warn',"]
+  },
+  "require chai": {
+    "prefix": "reqchai",
+    "body": ["const chai = require('chai');"]
+  },
+  "require expect": {
+    "prefix": "reqexpect",
+    "body": ["const { expect } = chai;"]
+  },
+  "require testdouble": {
+    "prefix": "reqtestdouble",
+    "body": ["const td = require('testdouble');"]
+  },
+  "require chai-http": {
+    "prefix": "reqchai-http",
+    "body": ["const chaiHttp = require('chai-http');"]
+  }
+}

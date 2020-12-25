@@ -1,0 +1,319 @@
+{
+  "breadcrumbs.enabled": true,
+
+  "debug.allowBreakpointsEverywhere": true,
+  "debug.console.fontSize": 14,
+  "debug.inlineValues": true,
+  "debug.openExplorerOnEnd": true,
+
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 3,
+  "editor.detectIndentation": true,
+  "editor.folding": true,
+  "editor.foldingStrategy": "indentation",
+  "editor.fontSize": 16,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "on",
+  "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.quickSuggestionsDelay": 1100,
+  "editor.renderControlCharacters": true,
+  "editor.renderIndentGuides": true,
+  "editor.renderLineHighlight": "gutter",
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "editor.scrollBeyondLastLine": true,
+  "editor.selectionHighlight": false,
+  "editor.smoothScrolling": true,
+  "editor.snippetSuggestions": "top",
+  "editor.suggest.shareSuggestSelections": true,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+
+  "eslint.alwaysShowStatus": true,
+  "eslint.run": "onSave",
+
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  "extensions.autoUpdate": false,
+
+  "files.associations": {
+    ".nycrc": "json",
+    "mocha.opts": "shellscript",
+    ".mocharc": "shellscript"
+  },
+  "files.defaultLanguage": "markdown",
+
+  "git.autofetch": true,
+  "git.autorefresh": true,
+  "git.autoRepositoryDetection": "subFolders",
+  "git.checkoutType": "all",
+  "git.ignoreMissingGitWarning": true,
+  "git.confirmSync": false,
+
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.advanced.repositorySearchDepth": 4,
+  "gitlens.advanced.telemetry.enabled": false,
+
+  "go.useLanguageServer": true,
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+      "source.fixAll": true
+    },
+    "editor.renderWhitespace": "selection",
+    // Optional: Disable snippets, as they conflict with completion ranking.
+    "editor.snippetSuggestions": "none"
+  },
+  "[go.mod]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "gopls": {
+    // Add parameter placeholders when completing a function.
+    "usePlaceholders": true,
+    // If true, enable additional analyses with staticcheck.
+    // Warning: This will significantly increase memory usage.
+    "staticcheck": false
+  },
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["cypress.json"],
+      "url": "https://on.cypress.io/cypress.schema.json"
+    }
+  ],
+
+  "launch": {
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug Unit Tests (Mocha)",
+        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+        "stopOnEntry": false,
+        "args": ["${relativeFile}"],
+        "console": "integratedTerminal",
+        "outputCapture": "std",
+        "autoAttachChildProcesses": true,
+        "runtimeVersion": "default"
+      },
+      {
+        "type": "node",
+        "request": "attach",
+        "name": "attach node local 9229",
+        "port": 9229,
+        "localRoot": "${workspaceFolder}/"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug IAP (server.js).",
+        "program": "${workspaceFolder}/server.js",
+        "console": "integratedTerminal",
+        "outputCapture": "std",
+        "autoAttachChildProcesses": true,
+        "stopOnEntry": false
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug <file.js>.",
+        "program": "${file}",
+        "console": "integratedTerminal",
+        "outputCapture": "std",
+        "autoAttachChildProcesses": true,
+        "stopOnEntry": false,
+        // Temp for docs.itential.io debug.
+        "args": ["none", "none", "blueprints/2020.1.0/blueprint.json"]
+      }
+    ],
+    "compounds": []
+  },
+
+  "[dockerfile]": {
+    "editor.quickSuggestions": {
+      "strings": false,
+      "comments": false,
+      "other": false
+    }
+  },
+  "[markdown]": {
+    "editor.quickSuggestions": false,
+    // Bounds of the viewport.
+    "editor.wordWrap": "on",
+    // "editor.wordWrap": "off",
+    "editor.wordWrapColumn": 80
+  },
+  "[shellscript]": {
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+    "files.eol": "\n"
+  },
+  "npm.autoDetect": "on",
+
+  "[python]": {
+    "editor.rulers": [80],
+    "editor.tabSize": 4
+  },
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "python.testing.pytestEnabled": true,
+  "python.testing.nosetestsEnabled": false,
+  "python.autoComplete.addBrackets": true,
+  "python.jediEnabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.languageServer": "Microsoft",
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/coverage": true,
+    "**/.nyc_output": true
+  },
+  "search.followSymlinks": true,
+  "search.showLineNumbers": true,
+  "search.useGlobalIgnoreFiles": true,
+
+  "shellcheck.useWorkspaceRootAsCwd": true,
+  "shellcheck.enable": true,
+  "shellcheck.enableQuickFix": true,
+  "shellcheck.exclude": ["SC1090", "SC1091", "SC2153", "SC2181"],
+  "shellcheck.run": "onType",
+  "shellcheck.customArgs": ["--external-sources"],
+
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.explorerKind": "integrated",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontSize": 16,
+
+  "todo.file.name": "TODO", // Todo file name. Other supported names are: `*.todo`, `*.todos`, `*.task`, `*.tasks`, `*.taskpaper` and `todolist.txt`
+  "todo.file.defaultContent": "\nTodo:\n  ☐ Item\n", // New todo files default content
+  "todo.file.include": ["**/TODO", "**/*.todo"], // Globs to use for including files
+  "todo.file.exclude": ["**/.!(todo|todos|task|tasks)/**"], // Globs to use for excluding files
+  "todo.file.view.expanded": true, // Start the tree in an expanded state
+  "todo.indentation": "  ", // String used for indentation
+  "todo.symbols.box": "☐", // Box symbol
+  "todo.symbols.done": "✔", // Done symbol
+  "todo.symbols.cancelled": "✘", // Cancelled symbol
+  "todo.colors.done": "#a6e22e", // Done todo color
+  "todo.colors.cancelled": "#f92672", // Cancelled todo color
+  "todo.colors.code": "#fd971f", // Code color
+  "todo.colors.comment": "#75715e", // Comment color
+  "todo.colors.project": "#66d9ef", // Project color
+  "todo.colors.projectStatistics": "#4694a3", // Project statistics color
+  "todo.colors.tag": "#e6db74", // Tag color
+  "todo.colors.tags.background": ["#e54545", "#e59f45", "#e5d145", "#ae81ff"], // Special tags' background colors
+  "todo.colors.tags.foreground": ["#000000", "#000000", "#000000", "#000000"], // Special tags' foreground colors
+  "todo.colors.types": { "TODO": "#ffcc00", "FIXME": "#cc0000" }, // Object mapping todo types to their color
+  "todo.colors.dark": {
+    /* "done": "white", ... */
+  }, // Colors for dark themes
+  "todo.colors.light": {
+    /* "done": "black", ... */
+  }, // Colors for light themes
+  "todo.tags.names": ["critical", "high", "low", "today"], // Special tags' names
+  "todo.tags.namesInference": true, // Infer commonly used tags' names
+  "todo.archive.name": "Archive", // Name of the special "Archive" section
+  "todo.archive.remove.emptyProjects": true, // Remove projects without todos
+  "todo.archive.remove.emptyLines": 1, // Remove extra empty lines, keeping no more than `emptyLinesThreshold` consecutive empty lines
+  "todo.archive.project.enabled": true, // Enable the @project tag
+  "todo.archive.project.separator": ".", // String used for joining multiple projects
+  "todo.archive.sortByDate": false, // Sort lines by finished date
+  "todo.formatting.enabled": true, // Enable markdown-like formatting
+  "todo.timekeeping.created.enabled": false, // Enable the @created tag
+  "todo.timekeeping.created.time": true, // Insert the time inside the @created tag
+  "todo.timekeeping.created.format": "YY-MM-DD HH:mm", // Format used for displaying time inside @created
+  "todo.timekeeping.started.time": true, // Insert the time inside the @started tag
+  "todo.timekeeping.started.format": "YY-MM-DD HH:mm", // Format used for displaying time inside @started
+  "todo.timekeeping.finished.enabled": true, // Enable the @done/cancelled tag. It's always enabled if you explicitly start a todo or if you use only 1 symbol
+  "todo.timekeeping.finished.time": true, // Insert the time inside the @done/cancelled tag
+  "todo.timekeeping.finished.format": "YY-MM-DD HH:mm", // Format used for displaying time inside @done/cancelled
+  "todo.timekeeping.elapsed.enabled": true, // Enable the @lasted/wasted tag
+  "todo.timekeeping.elapsed.format": "short-compact", // Format used for displaying time diff inside @lasted/waster
+  "todo.timekeeping.estimate.format": "short-compact", // Format used for the `[est]`, `[est-total]`, `[est-finished]` and `[est-finished-percentage]` tokens
+  "todo.timer.statusbar.enabled": "estimate", // Show a timer for started todos in the statusbar
+  "todo.timer.statusbar.alignment": "left", // Should the item be placed to the left or right?
+  "todo.timer.statusbar.color": "", // The foreground color for this item
+  "todo.timer.statusbar.priority": -10, // The priority of this item. Higher value means the item should be shown more to the left
+  "todo.statistics.project.enabled": "global.projects < 100", // Show statistics next to a project, boolean or JS expression
+  "todo.statistics.project.text": "([pending]) [est]", // Template used for rendering the text
+  "todo.statistics.statusbar.enabled": "global.projects < 100 && project.all > 0", // Show statistics in the statusbar, boolean or JS expression
+  "todo.statistics.statusbar.ignoreArchive": true, // Ignore the archive when rendering statistics in the statusbar
+  "todo.statistics.statusbar.alignment": "left", // Should the item be placed to the left or right?
+  "todo.statistics.statusbar.color": "", // The foreground color for this item
+  "todo.statistics.statusbar.command": "", // Command to execute on click
+  "todo.statistics.statusbar.priority": -1, // The priority of this item. Higher value means the item should be shown more to the left
+  "todo.statistics.statusbar.text": "$(check) [finished]/[all] ([percentage]%)", // Template used for rendering the text
+  "todo.statistics.statusbar.tooltip": "[pending] Pending - [done] Done - [cancelled] Cancelled", // Template used for rendering the tooltip
+  "todo.embedded.regex": "(?:<!-- *)?(?:#|// @|//|/\\*+|<!--|--|\\* @|\\{!|\\{\\{!--|\\{\\{!) *(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)(?:\\s*\\([^)]+\\))?:?(?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|\\{!|\\{\\{!--|\\{\\{!))|((?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|\\{!|\\{\\{!--|\\{\\{!))|(?: +[^@\\n]+)?))", // Regex used for finding embedded todos, requires double escaping
+  "todo.embedded.regexFlags": "gi", // Regex flags to use
+  "todo.embedded.include": ["**/*"], // Globs to use for including files
+  "todo.embedded.exclude": ["**/.*", "**/.*/**"], // Globs to use for excluding files
+  "todo.embedded.provider": "", // The provider to use when searching for embedded todos
+  "todo.embedded.providers.ag.regex": "(?:#|// @|//|/\\*+|<!--|--|\\* @|\\{!|\\{\\{!--|\\{\\{!) *(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)", // Regex used by ag, requires double escaping
+  "todo.embedded.providers.ag.args": ["--ignore-case"], // Extra arguments to pass to ag
+  "todo.embedded.providers.rg.regex": "(?:#|// @|//|/\\*+|<!--|--|\\* @|\\{!|\\{\\{!--|\\{\\{!) *(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)", // Regex used by rg, requires double escaping
+  "todo.embedded.providers.rg.args": ["--ignore-case"], // Extra arguments to pass to rg
+  "todo.embedded.file.wholeLine": true, // Show the whole line
+  "todo.embedded.file.groupByRoot": true, // Group embedded todos by workspace root
+  "todo.embedded.file.groupByType": true, // Group embedded todos by type
+  "todo.embedded.file.groupByFile": true, // Group embedded todos by file
+  "todo.embedded.view.wholeLine": false, // Show the whole line
+  "todo.embedded.view.groupByRoot": true, // Group embedded todos by workspace root
+  "todo.embedded.view.groupByType": true, // Group embedded todos by type
+  "todo.embedded.view.groupByFile": true, // Group embedded todos by file
+  "todo.embedded.view.expanded": true, // Start the tree in an expanded state
+  "todo.embedded.view.icons": true, // Show icons next to todos and types"
+
+  "window.restoreWindows": "none",
+  "window.zoomLevel": 1,
+
+  "workbench.activityBar.visible": true,
+  "workbench.editor.showTabs": true,
+  "workbench.commandPalette.preserveInput": true,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 16,
+  "workbench.tree.renderIndentGuides": "always",
+
+  "vsicons.dontShowNewVersionMessage": true,
+  "yaml.schemas": {
+    "file:///Users/cwilson/.vscode/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "workbench.panel.defaultLocation": "bottom",
+  "editor.columnSelection": false
+}

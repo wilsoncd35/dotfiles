@@ -1,0 +1,15 @@
+# Editors.
+.idea/
+.vscode/
+
+# Test reports.
+.nyc_output/
+coverage/
+report/
+
+# Personal scripts.
+*.cw
+*.cw.*
+
+# Misc.
+.DS_Store
