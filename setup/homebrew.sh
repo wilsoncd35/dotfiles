@@ -43,6 +43,7 @@ install_homebrew_programs() {
     openldap
     openssh
     openssl
+    p7zip
     pandoc
     parallel
     poetry
