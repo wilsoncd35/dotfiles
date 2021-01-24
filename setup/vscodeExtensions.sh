@@ -30,7 +30,6 @@ extensions=(
   timonwong.shellcheck
   vscode-icons-team.vscode-icons
   goland.go
-
 )
 
 for e in "${extensions[@]}";

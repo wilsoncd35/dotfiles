@@ -12,12 +12,6 @@ install_homebrew_programs() {
   local taps
   local programs
 
-  command -v brew > /dev/null 2>&1
-  if [ $? -ne 0 ]; then
-    echo 'homebrew does not appear to be installed. Exiting.'
-    return 1
-  fi
-
   taps=(
     mongodb/brew
   )
@@ -51,6 +45,7 @@ install_homebrew_programs() {
     openssl
     pandoc
     parallel
+    poetry
     pyenv
     pyenv-virtualenv
     python3
@@ -90,9 +85,6 @@ install_homebrew_casks() {
     google-chrome
     iterm2
     keepassxc
-    microsoft-auto-update
-    microsoft-edge
-    microsoft-office
     postman
     slack
   )
@@ -105,8 +97,13 @@ install_homebrew_casks() {
 
 main() {
   if [ "$(uname)" == 'Darwin' ]; then
-    echo 'Install homebrew on Mac OS X.'
-    install_homebrew
+
+    # Install homebrew.
+    command -v brew > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+      echo 'Install homebrew.'
+      install_homebrew
+    fi
 
     echo 'Install programs with homebrew.'
     install_homebrew_programs
@@ -115,3 +112,5 @@ main() {
     install_homebrew_casks
   fi
 }
+
+main

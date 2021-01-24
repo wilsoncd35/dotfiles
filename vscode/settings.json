@@ -300,7 +300,7 @@
   "todo.embedded.view.icons": true, // Show icons next to todos and types"
 
   "window.restoreWindows": "none",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": -1,
 
   "workbench.activityBar.visible": true,
   "workbench.editor.showTabs": true,
