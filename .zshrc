@@ -64,7 +64,6 @@ fi
 plugins=(
   aws
   brew
-  cask
   docker
   docker-compose
   docker-machine
