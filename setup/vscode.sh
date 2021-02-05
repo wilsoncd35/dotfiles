@@ -7,7 +7,13 @@
 main() {
   local target_path="$1"
 
-  [ -d "$target_path" ] || target_path="$HOME/Library/Application Support/Code/User"
+  if [ "$(uname)" == 'Darwin' ]; then
+    [ -d "$target_path" ] || target_path="$HOME/Library/Application Support/Code/User"
+  elif [ "$(uname)" == 'Linux' ]; then
+    [ -d "$target_path" ] || target_path="$HOME/.config/Code/User"
+  else
+    return 1
+  fi
 
   # Link user settings.
   unlink "$target_path/settings.json"
