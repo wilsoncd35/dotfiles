@@ -9,3 +9,5 @@
   cmd = code --wait --diff $LOCAL $REMOTE
 [pull]
   ff = only
+[core]
+  excludesfile = ~/.gitignore
