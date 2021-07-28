@@ -11,14 +11,16 @@ setup_dirs() {
   local target_dirs
 
   target_dirs=(
-    ~/data/archive/email
-    ~/data/archive/irc
-    ~/data/archive/iterm
-    ~/data/archive/log
-    ~/data/archive/shot
-    ~/data/backup
-    ~/data/log
-    ~/data/shot
+    ~/.data/archive/email
+    ~/.data/archive/irc
+    ~/.data/archive/iterm
+    ~/.data/archive/log
+    ~/.data/archive/shot
+    ~/.data/backup
+    ~/.data/log
+    ~/.data/shot
+    ~/r/c
+    ~/r/i
   )
 
   # Make dirs if they don't already exist.
@@ -26,8 +28,11 @@ setup_dirs() {
     mkdir -p "$td"
   done
 
-  # Links.
-  ln -sv ~/data/shot ~/Desktop
-
   # rsync -vat --remove-source-files --log-file="$pathLog"/archive.log ~/Desktop/shot*.png "$pathArchive"/screenshot
 }
+
+main() {
+  setup_dirs
+}
+
+main

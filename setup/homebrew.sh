@@ -39,6 +39,7 @@ install_homebrew_programs() {
     mas
     maven
     mongodb-community@3.6
+    neovim
     nvm
     openldap
     openssh
@@ -56,6 +57,7 @@ install_homebrew_programs() {
     shellcheck
     sqlite
     telnet
+    tmux
     trash
     tree
     vim

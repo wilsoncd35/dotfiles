@@ -315,5 +315,7 @@
     "file:///Users/cwilson/.vscode/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "workbench.panel.defaultLocation": "bottom",
-  "editor.columnSelection": false
+  "editor.columnSelection": false,
+  "workbench.colorTheme": "Monokai Dimmed",
+  "redhat.telemetry.enabled": false
 }

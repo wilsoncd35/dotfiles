@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+#
+# Bootstrap Node.js project.
+#
+
+main() {
+
+  # Intall packages.
+    npm i --save-dev \
+      chai@latest  \
+      chai-http@latest  \
+      cypress@latest  \
+      eslint@latest  \
+      eslint-config-airbnb@latest  \
+      eslint-config-prettier@latest  \
+      eslint-plugin-cypress@latest  \
+      eslint-plugin-import@latest  \
+      eslint-plugin-jsdoc@latest  \
+      eslint-plugin-json@latest  \
+      eslint-plugin-mocha@latest  \
+      eslint-plugin-node@latest  \
+      eslint-plugin-prettier@latest  \
+      eslint-plugin-promise@latest  \
+      eslint-plugin-security@latest  \
+      eslint-plugin-yaml@latest  \
+      fast-check@latest  \
+      gherkin-lint@latest  \
+      husky@4.3.8  \
+      jsdoc@latest  \
+      lint-staged@latest  \
+      markdown-spellcheck@latest  \
+      markdownlint-cli@latest  \
+      mocha@latest  \
+      mochawesome@latest  \
+      nyc@latest  \
+      prettier@latest  \
+      prettier-plugin-package@latest  \
+      pretty-quick@latest  \
+      pug-lint@latest  \
+      shellcheck@latest  \
+      testdouble@latest
+
+  # Dirs.
+    mkdir -p \
+      bin         \
+      config      \
+      docs        \
+      lib         \
+      test/unit
+
+}
+
+main

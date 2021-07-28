@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source .dotfiles/shell.sh
+source .dotfiles/shell
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

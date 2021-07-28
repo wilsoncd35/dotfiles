@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+#
+# Logger.
+#
+log() {
+  local message="$1"
+  local level="$2"
+  local level_default='info'
+
+  local cReset='\033[0m'
+  local cRed='\033[0;31m'
+  local cYellow='\033[0;33m'
+  local cMagenta='\033[0;35m'
+
+
+  [ -z "$level" ] && level="$level_default"
+
+  # No message, then get out.
+  [ -z "$message" ] && return 0
+
+  case "$level" in
+    e|err|error)
+      message="${cRed}${message}${cReset}"
+    ;;
+
+    w|warn|warning)
+      message="${cYellow}${message}${cReset}"
+    ;;
+
+    # info missing by design.
+
+    d|debug)
+      message="${cMagenta}${message}${cReset}"
+    ;;
+  esac
+
+  echo -e "$message"
+}

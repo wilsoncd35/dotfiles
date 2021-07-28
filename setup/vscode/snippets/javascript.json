@@ -13,6 +13,17 @@
       "}"
     ]
   },
+  "doc c itential": {
+    "prefix": "doc c",
+    "body": [
+       "/**",
+       " * @file $1.",
+       " * @license proprietary",
+       " * @copyright © Itential, Inc. All rights reserved.",
+       " */"
+    ],
+    "description": "Insert copyright Itential in JSDoc."
+  },
   "console.log callback": {
     "prefix": "conc",
     "body": [

@@ -53,7 +53,7 @@ ZSH_THEME="robbyrussell"
 # Add customer aliases, functions, vars.
 if [ -d ~/.oh-my-zsh/custom ]; then
   unlink ~/.oh-my-zsh/custom/shell.zsh
-  ln -s ~/.dotfiles/shell.sh ~/.oh-my-zsh/custom/shell.zsh
+  ln -s ~/.dotfiles/shell ~/.oh-my-zsh/custom/shell.zsh
 fi
 
 # Which plugins would you like to load?
@@ -127,3 +127,4 @@ if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cl
 
 # Enable shell command completion for gcloud.
 if [ -f "$HOME/p/c/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/completion.zsh.inc"; fi
+export PATH="/usr/local/opt/ruby/bin:$PATH"
