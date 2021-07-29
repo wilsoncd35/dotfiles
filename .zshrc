@@ -1,6 +1,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="/Users/cwilson/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -50,7 +50,7 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Add customer aliases, functions, vars.
+# Add custom aliases, functions, vars.
 if [ -d ~/.oh-my-zsh/custom ]; then
   unlink ~/.oh-my-zsh/custom/shell.zsh
   ln -s ~/.dotfiles/shell ~/.oh-my-zsh/custom/shell.zsh
