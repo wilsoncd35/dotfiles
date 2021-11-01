@@ -20,6 +20,7 @@
        " * @file $1.",
        " * @license proprietary",
        " * @copyright © Itential, Inc. All rights reserved.",
+       " * @module",
        " */"
     ],
     "description": "Insert copyright Itential in JSDoc."

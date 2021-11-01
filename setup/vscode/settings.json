@@ -300,7 +300,6 @@
   "todo.embedded.view.icons": true, // Show icons next to todos and types"
 
   "window.restoreWindows": "none",
-  "window.zoomLevel": 1,
 
   "workbench.activityBar.visible": true,
   "workbench.editor.showTabs": true,
@@ -309,13 +308,25 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 16,
   "workbench.tree.renderIndentGuides": "always",
+  "workbench.sideBar.location": "right",
 
   "vsicons.dontShowNewVersionMessage": true,
   "yaml.schemas": {
     "file:///Users/cwilson/.vscode/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "workbench.panel.defaultLocation": "bottom",
-  "editor.columnSelection": false,
   "workbench.colorTheme": "Monokai Dimmed",
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "window.zoomLevel": 1,
+  "wallaby.codeLensFeature.runTest": true,
+  "wallaby.noAutomaticInstall": true,
+  "wallaby.startAutomatically": false,
+  "diffEditor.ignoreTrimWhitespace": false
 }
