@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+SCRIPT_PATH="$(dirname "$0")"
+
+config_paths=(
+  .bash_profile
+  .curlrc
+  .eslintignore
+  .gitconfig
+  .gitignore
+  .vimrc
+  .zshrc
+)
+
+main() {
+  local data_path="$HOME/.data"
+  local backup_path="$data_path/backup"
+
+  mkdir -p  \
+    "$backup_path"  \
+    "$data_path/archive"
+
+  # Configs.
+  for config_path in "${config_paths[@]}"; do
+    
+    if [ -e "$config_path" ]; then
+      echo "Backing up $config_path to $backup_path."
+      cp -r "$config_path" "$backup_path"
+
+      echo "Removing $config_path."
+      if [ -h "$config_path" ]; then
+        unlink "$config_path"
+      else
+        rm -rf "$config_path"
+      fi
+    else
+      echo "Backup: $config_path does not exist."
+    fi
+    echo "Linking $HOME/$SCRIPT_PATH/$config_path at $HOME/$config_path."
+    ln -s "$HOME/$SCRIPT_PATH/$config_path" "$HOME/$config_path"
+  done
+
+  # vim
+
+
+  # Screenshots.
+  mkdir -p "$data_path/shot"
+  [ -h "$HOME/Desktop/shot" ] || ln -s "$data_path/shot" "$HOME/Desktop"
+  if [ "$(uname)" == 'Darwin' ]; then
+    defaults write com.apple.screencapture location $data_path/archive/screenshot
+    defaults write com.apple.screencapture name "shot"
+  fi
+}
+
+main
