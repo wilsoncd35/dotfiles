@@ -128,3 +128,8 @@ if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cl
 # Enable shell command completion for gcloud.
 if [ -f "$HOME/p/c/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/completion.zsh.inc"; fi
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Do not clear screen on exit man.
+export MANPAGER='less -X'
+
+export PATH="~/bin:$PATH"
