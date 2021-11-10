@@ -308,7 +308,6 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 16,
   "workbench.tree.renderIndentGuides": "always",
-  "workbench.sideBar.location": "right",
 
   "vsicons.dontShowNewVersionMessage": true,
   "yaml.schemas": {
@@ -324,7 +323,6 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "window.zoomLevel": 1,
   "wallaby.codeLensFeature.runTest": true,
   "wallaby.noAutomaticInstall": true,
   "wallaby.startAutomatically": false,

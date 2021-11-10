@@ -4,11 +4,10 @@
     "description": "Execute this module directory or export.",
     "body": [
       "if (typeof require !== 'undefined' && require.main === module) {",
-      "  // Execute this module directly then output configuration.",
-      "  /* eslint-disable-next-line */",
-      "  console.log(JSON.stringify(config, null, 2));",
+      "  // When a script.",
+      "  log.debug(JSON.stringify(config, null, 2));",
       "} else {",
-      "  // Require this module and it will export.",
+      "  // When a module.",
       "  module.exports = config;",
       "}"
     ]
@@ -16,12 +15,12 @@
   "doc c itential": {
     "prefix": "doc c",
     "body": [
-       "/**",
-       " * @file $1.",
-       " * @license proprietary",
-       " * @copyright © Itential, Inc. All rights reserved.",
-       " * @module",
-       " */"
+      "/**",
+      " * @file $1.",
+      " * @license proprietary",
+      " * @copyright © Itential, Inc. All rights reserved.",
+      " * @module",
+      " */"
     ],
     "description": "Insert copyright Itential in JSDoc."
   },

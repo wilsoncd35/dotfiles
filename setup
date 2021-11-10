@@ -40,6 +40,13 @@ main() {
     ln -s "$HOME/$SCRIPT_PATH/$config_path" "$HOME/$config_path"
   done
 
+  # bin
+  mkdir -p "$HOME/bin"
+
+  for b in "$HOME/.dotfiles/bin; do
+    ln -s "$HOME/.dotfiles/bin/$b" "$HOME/bin"
+  done
+
   # vim
 
 
