@@ -73,11 +73,11 @@ plugins=(
   helm
   jira
   kubectl
+  macos
   node
   npm
   npx
   nvm
-  osx
   pep8
   pip
   pyenv
