@@ -67,6 +67,7 @@ plugins=(
   docker
   docker-compose
   docker-machine
+  dotenv
   git
   golang
   helm

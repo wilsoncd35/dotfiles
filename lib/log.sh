@@ -31,7 +31,7 @@ log() {
   local level="$2"
   local level_default='info'
   local path="$3"
-  local path_default="$HOME/.dotfiles/report/dotfiles.log"
+  local path_default="$HOME/.data/report/dotfiles.log"
   local prefix='[df]'
 
   [ -z "$message" ] && return 0

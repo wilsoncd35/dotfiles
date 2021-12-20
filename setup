@@ -1,55 +1,156 @@
 #!/usr/bin/env bash
 
-SCRIPT_PATH="$(dirname "$0")"
+#
+# Setup dotfiles.
+#
 
-config_paths=(
-  .bash_profile
-  .curlrc
-  .eslintignore
-  .gitconfig
-  .gitignore
-  .vimrc
-  .zshrc
-)
-
-main() {
-  local data_path="$HOME/.data"
-  local backup_path="$data_path/backup"
-
-  mkdir -p  \
-    "$backup_path"  \
-    "$data_path/archive"
-
-  # Configs.
-  for config_path in "${config_paths[@]}"; do
-    
-    if [ -e "$config_path" ]; then
-      echo "Backing up $config_path to $backup_path."
-      cp -r "$config_path" "$backup_path"
-
-      echo "Removing $config_path."
-      if [ -h "$config_path" ]; then
-        unlink "$config_path"
-      else
-        rm -rf "$config_path"
-      fi
+#
+# Relative paths to libraries.
+#
+  lib_paths=(
+    ./lib/log.sh
+  )
+  for lib_path in "${lib_paths[@]}"; do
+    SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    if [ -e "$SCRIPT_PATH/$lib_path" ]; then
+      # Is source of a source.
+      source "$SCRIPT_PATH/$lib_path"
     else
-      echo "Backup: $config_path does not exist."
+      # Is a source.
+      SCRIPT_PATH=$(dirname "$0")
+      source "$SCRIPT_PATH/$lib_path"
     fi
-    echo "Linking $HOME/$SCRIPT_PATH/$config_path at $HOME/$config_path."
-    ln -s "$HOME/$SCRIPT_PATH/$config_path" "$HOME/$config_path"
   done
 
-  # vim
+data_path="$HOME/.data"
+backup_path="$data_path/backup"
+archive_path="$data_path/archive"
+mkdir -p "$backup_path"
+mkdir -p "$archive_path"
 
+#
+# Backup a thing.
+#
+backup() {
+  local src_path="$1"
+  local dest_path="$2"
+  local dest_path_default="$backup_path"
+  local fail=0
+  local now
 
-  # Screenshots.
-  mkdir -p "$data_path/shot"
-  [ -h "$HOME/Desktop/shot" ] || ln -s "$data_path/shot" "$HOME/Desktop"
-  if [ "$(uname)" == 'Darwin' ]; then
-    defaults write com.apple.screencapture location $data_path/archive/screenshot
-    defaults write com.apple.screencapture name "shot"
+  if [ -z "$src_path" ]; then
+    log 'Backup src path not given.' 'err'
+    ((fail+=1))
   fi
+
+  [ -z "$dest_path" ] && dest_path="$dest_path_default"
+  if [ -z "$dest_path" ]; then
+    log 'Backup dest path not given.' 'err'
+    ((fail+=1))
+  fi
+
+  [ "$fail" -eq 0 ] || return 1
+
+  mkdir -p "$dest_path"
+  now="$(date -u "+%Y-%m-%d-%H%M%S")"
+  cp -r "$src_path" "$dest_path/$(basename "$src_path").$now"
+}
+
+#
+# General dotfiles, mostly at root of home.
+#
+general_setup() {
+  local dotfile_paths
+
+  # Relative path to this setup script.
+  dotfile_paths=(
+    .bash_profile
+    .curlrc
+    .eslintignore
+    .gitconfig
+    .gitignore
+    .vimrc
+    .zprofile
+    .zshrc
+  )
+
+  for dotfile_path in "${dotfile_paths[@]}"; do
+      if [ -e "$dotfile_path" ]; then
+        log "Backing up $dotfile_path to $backup_path."
+        backup "$dotfile_path" "$backup_path"
+
+        log "Removing $dotfile_path."
+        if [ -h "$dotfile_path" ]; then
+          unlink "$dotfile_path"
+        else
+          rm -rf "$dotfile_path"
+        fi
+      else
+        log "Backup: $dotfile_path does not exist and that is OK."
+      fi
+      log "Linking $HOME/$(dirname "$0")/$dotfile_path at $HOME/$dotfile_path."
+      ln -s "$HOME/$(dirname "$0")/$dotfile_path" "$HOME/$dotfile_path"
+    done
+}
+
+#
+# Screenshots.
+#
+screenshot_setup() {
+    mkdir -p "$data_path/shot"
+    [ -h "$HOME/Desktop/shot" ] || ln -s "$data_path/shot" "$HOME/Desktop"
+    if [ "$(uname)" == 'Darwin' ]; then
+      defaults write com.apple.screencapture location "$data_path"/archive/screenshot
+      defaults write com.apple.screencapture name "shot"
+    fi
+}
+
+#
+# vscode (Visual Studio Code).
+#
+vscode_setup() {
+  local configure_path=''
+  local configure_path_osx="$HOME/Library/Application Support/Code/User"
+  local configure_path_linux="$HOME/.config/Code/User"
+
+  case "$(uname)" in
+    Darwin)
+      configure_path="$configure_path_osx"
+      ;;
+    Linux)
+      configure_path="$configure_path_linux"
+      ;;
+  esac
+
+  log "vscode config path is $configure_path."
+  mkdir -p "$configure_path"
+
+  # User settings.
+    [ -L "$configure_path/settings.json" ] && unlink "$configure_path/settings.json"
+    now="$(date -u "+%Y-%m-%d-%H%M%S")"
+    [ -d "$configure_path/settings.json" ] && mv "$configure_path/settings.json" "$backup_path/settings.$now.json"
+    ln -sv "$HOME/$(dirname "$0")/vscode/settings.json" "$configure_path"
+
+  # Snippets.
+    [ -L "$configure_path/snippets" ] && unlink "$configure_path/snippets"
+    now="$(date -u "+%Y-%m-%d-%H%M%S")"
+    [ -d "$configure_path/snippets" ] && mv "$configure_path/snippets" "$backup_path/snippets.$now"
+    ln -sv "$HOME/$(dirname "$0")/vscode/snippets" "$configure_path"
+
+  # Key bindings.
+    [ -L "$configure_path/keybindings.json" ] && unlink "$configure_path/keybindings.json"
+    now="$(date -u "+%Y-%m-%d-%H%M%S")"
+    [ -d "$configure_path/keybindings.json" ] && mv "$configure_path/keybindings.json" "$backup_path/keybindings.$now.json"
+    ln -sv "$HOME/$(dirname "$0")/vscode/keybindings.json" "$configure_path"
+}
+
+#
+# Do it.
+#
+main() {
+  general_setup
+  screenshot_setup
+  vscode_setup
 }
 
 main
