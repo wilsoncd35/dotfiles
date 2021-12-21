@@ -327,6 +327,5 @@
   "wallaby.codeLensFeature.runTest": true,
   "wallaby.noAutomaticInstall": true,
   "wallaby.startAutomatically": false,
-  "window.zoomLevel": 1,
   "diffEditor.ignoreTrimWhitespace": false
 }

@@ -3,13 +3,6 @@
 # Aliases, functions, vars.
 #
 
-# Color.
-export cNone="\e[0m"
-export cYellow="\e[33m"
-export cRed="\e[31m"
-export cCyan="\e[36m"
-export cGreen="\e[32m"
-
 # Cypress.io. Do not send crash reports.
 export CYPRESS_CRASH_REPORTS=0
 

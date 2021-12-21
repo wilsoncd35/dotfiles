@@ -51,10 +51,10 @@ ZSH_THEME="robbyrussell"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Add custom aliases, functions, vars.
-if [ -d ~/.oh-my-zsh/custom ]; then
-  unlink ~/.oh-my-zsh/custom/shell.zsh
-  ln -s ~/.dotfiles/shell ~/.oh-my-zsh/custom/shell.zsh
-fi
+# if [ -d ~/.oh-my-zsh/custom ]; then
+#   unlink ~/.oh-my-zsh/custom/shell.zsh
+#   ln -s ~/.dotfiles/shell ~/.oh-my-zsh/custom/shell.zsh
+# fi
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -115,12 +115,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Bash completion.
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# nvm.
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 
-# Bash completion.
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# pyenv.
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # PATH for the Google Cloud SDK.
 if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/path.zsh.inc"; fi
@@ -132,4 +138,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # Do not clear screen on exit man.
 export MANPAGER='less -X'
 
-export PATH="~/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+export DOTFILES_PATH="$HOME/.dotfiles"
+source "$DOTFILES_PATH"/lib/cd.sh
+source "$DOTFILES_PATH"/lib/shell.sh

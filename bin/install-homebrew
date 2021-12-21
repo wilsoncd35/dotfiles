@@ -82,14 +82,10 @@ install_homebrew_casks() {
   local casks
 
   casks=(
-    alfred
-    docker
     firefox
     google-chrome
     iterm2
     keepassxc
-    postman
-    slack
   )
 
   for c in "${casks[@]}"; do
