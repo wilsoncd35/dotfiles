@@ -4,6 +4,7 @@
     "description": "Simple logger. Avoid using console directly.",
     "body": [
       "/** Simple logger. */",
+      "/* istanbul ignore next: Unnecessary. */",
       "if (!global.log) global.log = console;",
       "$0"
     ]

@@ -195,7 +195,7 @@
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": false,
   "python.terminal.activateEnvInCurrentTerminal": true,
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Default",
 
   "search.exclude": {
     "**/node_modules": true,
@@ -327,5 +327,7 @@
   "wallaby.codeLensFeature.runTest": true,
   "wallaby.noAutomaticInstall": true,
   "wallaby.startAutomatically": false,
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "python.analysis.completeFunctionParens": true,
+  "window.zoomLevel": 1
 }

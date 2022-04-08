@@ -1,5 +1,5 @@
 [user]
-  name = Charlie Wilson
+	name = Charlie Wilson
   email = charlie.wilson@itential.com
 [color]
   ui = true
@@ -11,3 +11,5 @@
   ff = only
 [core]
   excludesfile = ~/.gitignore
+[pager]
+	branch = false
