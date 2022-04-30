@@ -186,6 +186,11 @@
     "editor.rulers": [80],
     "editor.tabSize": 4
   },
+
+  "pylance.insidersChannel": "off",
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.diagnosticMode": "openFilesOnly",
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.testing.autoTestDiscoverOnSaveEnabled": true,
@@ -328,6 +333,6 @@
   "wallaby.noAutomaticInstall": true,
   "wallaby.startAutomatically": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "python.analysis.completeFunctionParens": true,
-  "window.zoomLevel": 1
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "window.zoomLevel": 2
 }

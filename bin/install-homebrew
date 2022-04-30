@@ -23,6 +23,7 @@ install_homebrew_programs() {
     bash
     bash-completion@2
     curl
+    direnv
     fswatch
     git
     git-gui

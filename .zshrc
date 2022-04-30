@@ -135,6 +135,9 @@ if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cl
 if [ -f "$HOME/p/c/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/completion.zsh.inc"; fi
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
+# direnv.
+eval "$(direnv hook zsh)"
+
 # Do not clear screen on exit man.
 export MANPAGER='less -X'
 
