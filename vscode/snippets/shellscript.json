@@ -1,0 +1,14 @@
+{
+  "shebang": {
+    "prefix": "shebang",
+    "body": ["#!/usr/bin/env bash"]
+  },
+  "now utc": {
+    "prefix": "now utc",
+    "body": ["now=\"$(date -u \"+%Y-%m-%d-%H%M%S\")\""]
+  },
+  "now local": {
+    "prefix": "now",
+    "body": ["now=\"$(date \"+%Y-%m-%d-%H%M%S\")\""]
+  }
+}

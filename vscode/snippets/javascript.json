@@ -31,8 +31,20 @@
       "}"
     ]
   },
-  "doc c itential": {
+  "doc c charlie": {
     "prefix": "doc c",
+    "body": [
+      "/**",
+      " * @file $1.",
+      " * @license proprietary",
+      " * @copyright © Charlie Wilson. All rights reserved.",
+      " * @module",
+      " */"
+    ],
+    "description": "Insert copyright Charlie in JSDoc."
+  },
+  "doc i itential": {
+    "prefix": "doc i",
     "body": [
       "/**",
       " * @file $1.",
@@ -42,6 +54,13 @@
       " */"
     ],
     "description": "Insert copyright Itential in JSDoc."
+  },
+  "console.log response": {
+    "prefix": "conr",
+    "body": [
+      "console.log(`[response]>>>${JSON.stringify(this.response, null, 2)}`);"
+    ],
+    "description": "Log test response to console. Useful for quick test."
   },
   "console.log callback": {
     "prefix": "conc",
@@ -66,6 +85,15 @@
     "prefix": "desc",
     "body": ["describe('$1', function () {", "  $0", "});"],
     "description": "mocha describe"
+  },
+  "mocha it http status code": {
+    "prefix": "it http status code",
+    "body": [
+      "it('HTTP $1 status code.', function () {",
+      "  expect(this.response).to.have.status($1);",
+      "});",
+      "$0"
+    ]
   },
   "mocha it": {
     "prefix": "it",

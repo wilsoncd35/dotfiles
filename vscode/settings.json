@@ -1,10 +1,25 @@
 {
   "breadcrumbs.enabled": true,
 
+  // This combination of debug settings will cause vscode debugger to attach to
+  // a Node.js process when it is executed from the integrated terminal.
   "debug.allowBreakpointsEverywhere": true,
   "debug.console.fontSize": 14,
-  "debug.inlineValues": true,
-  "debug.openExplorerOnEnd": true,
+  "debug.inlineValues": "on",
+  "debug.autoExpandLazyVariables": true,
+  "debug.console.acceptSuggestionOnEnter": "on",
+  "debug.showBreakpointsInOverviewRuler": true,
+  "debug.showInStatusBar": "always",
+  "debug.focusEditorOnBreak": true,
+  "debug.internalConsoleOptions": "openOnFirstSessionStart",
+  "debug.javascript.autoAttachFilter": "smart",
+  "debug.javascript.autoAttachSmartPattern": [
+    "${workspaceFolder}/**",
+    "!**/node_modules/**",
+    "**/$KNOWN_TOOLS$/**"
+  ],
+  "debug.javascript.automaticallyTunnelRemoteServer": true,
+  "debug.openDebug": "openOnFirstSessionStart",
 
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "line",
@@ -12,7 +27,13 @@
   "editor.detectIndentation": true,
   "editor.folding": true,
   "editor.foldingStrategy": "indentation",
+  "editor.fontFamily": "Fira Code",
   "editor.fontSize": 16,
+  "editor.fontLigatures": true,
+  // "editor.fontWeight": "300", // Light.
+  "editor.fontWeight": "400", // Regular.
+  // "editor.fontWeight": "500", // Medium.
+  // "editor.fontWeight": "600", // Bold.
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -27,7 +48,6 @@
   },
   "editor.quickSuggestionsDelay": 1100,
   "editor.renderControlCharacters": true,
-  "editor.renderIndentGuides": true,
   "editor.renderLineHighlight": "gutter",
   "editor.renderWhitespace": "all",
   "editor.rulers": [80],
@@ -113,53 +133,6 @@
       "url": "https://on.cypress.io/cypress.schema.json"
     }
   ],
-
-  "launch": {
-    "configurations": [
-      {
-        "type": "node",
-        "request": "launch",
-        "name": "Debug Unit Tests (Mocha)",
-        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-        "stopOnEntry": false,
-        "args": ["${relativeFile}"],
-        "console": "integratedTerminal",
-        "outputCapture": "std",
-        "autoAttachChildProcesses": true,
-        "runtimeVersion": "default"
-      },
-      {
-        "type": "node",
-        "request": "attach",
-        "name": "attach node local 9229",
-        "port": 9229,
-        "localRoot": "${workspaceFolder}/"
-      },
-      {
-        "type": "node",
-        "request": "launch",
-        "name": "Debug IAP (server.js).",
-        "program": "${workspaceFolder}/server.js",
-        "console": "integratedTerminal",
-        "outputCapture": "std",
-        "autoAttachChildProcesses": true,
-        "stopOnEntry": false
-      },
-      {
-        "type": "node",
-        "request": "launch",
-        "name": "Debug <file.js>.",
-        "program": "${file}",
-        "console": "integratedTerminal",
-        "outputCapture": "std",
-        "autoAttachChildProcesses": true,
-        "stopOnEntry": false,
-        // Temp for docs.itential.io debug.
-        "args": ["none", "none", "blueprints/2020.1.0/blueprint.json"]
-      }
-    ],
-    "compounds": []
-  },
 
   "[dockerfile]": {
     "editor.quickSuggestions": {
@@ -320,7 +293,7 @@
     "file:///Users/cwilson/.vscode/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "workbench.panel.defaultLocation": "bottom",
-  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.colorTheme": "Noctis High Contrast",
   "redhat.telemetry.enabled": false,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
@@ -332,7 +305,7 @@
   "wallaby.codeLensFeature.runTest": true,
   "wallaby.noAutomaticInstall": true,
   "wallaby.startAutomatically": false,
-  "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "window.zoomLevel": 2
+  "editor.guides.indentation": true,
+  "diffEditor.ignoreTrimWhitespace": false
 }
