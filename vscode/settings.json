@@ -3,23 +3,23 @@
 
   // This combination of debug settings will cause vscode debugger to attach to
   // a Node.js process when it is executed from the integrated terminal.
-  "debug.allowBreakpointsEverywhere": true,
-  "debug.console.fontSize": 14,
-  "debug.inlineValues": "on",
-  "debug.autoExpandLazyVariables": true,
-  "debug.console.acceptSuggestionOnEnter": "on",
-  "debug.showBreakpointsInOverviewRuler": true,
-  "debug.showInStatusBar": "always",
-  "debug.focusEditorOnBreak": true,
-  "debug.internalConsoleOptions": "openOnFirstSessionStart",
-  "debug.javascript.autoAttachFilter": "smart",
-  "debug.javascript.autoAttachSmartPattern": [
-    "${workspaceFolder}/**",
-    "!**/node_modules/**",
-    "**/$KNOWN_TOOLS$/**"
-  ],
-  "debug.javascript.automaticallyTunnelRemoteServer": true,
-  "debug.openDebug": "openOnFirstSessionStart",
+  // "debug.allowBreakpointsEverywhere": true,
+  // "debug.console.fontSize": 14,
+  // "debug.inlineValues": "on",
+  // "debug.autoExpandLazyVariables": true,
+  // "debug.console.acceptSuggestionOnEnter": "on",
+  // "debug.showBreakpointsInOverviewRuler": true,
+  // "debug.showInStatusBar": "always",
+  // "debug.focusEditorOnBreak": true,
+  // "debug.internalConsoleOptions": "openOnFirstSessionStart",
+  // "debug.javascript.autoAttachFilter": "smart",
+  // "debug.javascript.autoAttachSmartPattern": [
+  //   "${workspaceFolder}/**",
+  //   "!**/node_modules/**",
+  //   "**/$KNOWN_TOOLS$/**"
+  // ],
+  // "debug.javascript.automaticallyTunnelRemoteServer": true,
+  // "debug.openDebug": "openOnFirstSessionStart",
 
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "line",
