@@ -8,3 +8,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # direnv.
 eval "$(direnv hook bash)"
+
+alias vim='nvim'
+
