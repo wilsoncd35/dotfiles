@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#
+# Install nvm, Node.js, npm, etc.
+#
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.bashrc
+
+# 12.
+nvm use lts/erbium
+[ "$?" -eq 0 ] || nvm install --lts=erbium
+
+# 14.
+nvm use lts/fermium
+[ "$?" -eq 0 ] || nvm install --lts=fermium
+
+# 16.
+nvm use lts/gallium
+[ "$?" -eq 0 ] || nvm install --lts=gallium
+install_packages
+npm install --location=global npm@latest
+
+nvm alias default lts/fermium
+nvm alias 10 lts/dubnium
+nvm alias 12 lts/erbium
+nvm alias 14 lts/fermium
+nvm alias 16 lts/gallium
+
+nvm use default
