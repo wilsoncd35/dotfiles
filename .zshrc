@@ -117,22 +117,17 @@ source $ZSH/oh-my-zsh.sh
 # Bash completion.
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-# nvm.
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
-
 # pyenv.
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # PATH for the Google Cloud SDK.
-if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/path.zsh.inc"; fi
+# if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/path.zsh.inc"; fi
 
 # Enable shell command completion for gcloud.
-if [ -f "$HOME/p/c/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/completion.zsh.inc"; fi
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+# if [ -f "$HOME/p/c/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/completion.zsh.inc"; fi
+# export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # direnv.
 eval "$(direnv hook zsh)"
@@ -140,7 +135,7 @@ eval "$(direnv hook zsh)"
 # Do not clear screen on exit man.
 export MANPAGER='less -X'
 
-export PATH="$HOME/bin:$HOME/.dotfiles/node_modules/.bin:$PATH"
+# export PATH="$HOME/bin:$HOME/.dotfiles/node_modules/.bin:$PATH"
 
 export DOTFILES_PATH="$HOME/.dotfiles"
 source "$DOTFILES_PATH"/lib/cd.sh
@@ -148,3 +143,5 @@ source "$DOTFILES_PATH"/lib/shell.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias vim='nvim'
+export PATH="/usr/local/opt/redis@6.2/bin:$PATH"
+# /usr/local/opt/redis@6.2/bin:/Users/cwilson/bin:/Users/cwilson/.dotfiles/node_modules/.bin:/usr/local/opt/ruby/bin:/Users/cwilson/.pyenv/shims:/Users/cwilson/.pyenv/bin:/Users/cwilson/.pyenv/bin:/Users/cwilson/.cargo/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/cwilson/.yarn/bin:/usr/local/sbin

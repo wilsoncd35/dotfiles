@@ -3,24 +3,28 @@
 
   // This combination of debug settings will cause vscode debugger to attach to
   // a Node.js process when it is executed from the integrated terminal.
-  // "debug.allowBreakpointsEverywhere": true,
-  // "debug.console.fontSize": 14,
-  // "debug.inlineValues": "on",
-  // "debug.autoExpandLazyVariables": true,
-  // "debug.console.acceptSuggestionOnEnter": "on",
-  // "debug.showBreakpointsInOverviewRuler": true,
-  // "debug.showInStatusBar": "always",
-  // "debug.focusEditorOnBreak": true,
-  // "debug.internalConsoleOptions": "openOnFirstSessionStart",
-  // "debug.javascript.autoAttachFilter": "smart",
-  // "debug.javascript.autoAttachSmartPattern": [
-  //   "${workspaceFolder}/**",
-  //   "!**/node_modules/**",
-  //   "**/$KNOWN_TOOLS$/**"
-  // ],
-  // "debug.javascript.automaticallyTunnelRemoteServer": true,
-  // "debug.openDebug": "openOnFirstSessionStart",
+  "debug.allowBreakpointsEverywhere": true,
+  "debug.console.fontSize": 14,
+  "debug.inlineValues": "on",
+  "debug.autoExpandLazyVariables": true,
+  "debug.console.acceptSuggestionOnEnter": "on",
+  "debug.showBreakpointsInOverviewRuler": true,
+  "debug.showInStatusBar": "always",
+  "debug.focusEditorOnBreak": true,
+  "debug.internalConsoleOptions": "openOnFirstSessionStart",
+  "debug.javascript.autoAttachFilter": "smart",
+  "debug.javascript.autoAttachSmartPattern": [
+    "${workspaceFolder}/**",
+    "!**/node_modules/**",
+    "**/$KNOWN_TOOLS$/**"
+  ],
+  "debug.javascript.automaticallyTunnelRemoteServer": true,
+  "debug.openDebug": "openOnFirstSessionStart",
 
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 3,
@@ -142,7 +146,11 @@
     }
   },
   "[markdown]": {
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
     // Bounds of the viewport.
     "editor.wordWrap": "on",
     // "editor.wordWrap": "off",
@@ -307,5 +315,5 @@
   "wallaby.startAutomatically": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "editor.guides.indentation": true,
-  "diffEditor.ignoreTrimWhitespace": false
+  "window.zoomLevel": 1
 }
