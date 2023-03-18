@@ -1,6 +1,10 @@
 {
-  "shebang": {
+  "shebang bash": {
     "prefix": "shebang",
+    "body": ["#!/usr/bin/env bash"]
+  },
+  "shebang zsh": {
+    "prefix": "shebangz",
     "body": ["#!/usr/bin/env bash"]
   },
   "now utc": {
@@ -10,5 +14,9 @@
   "now local": {
     "prefix": "now",
     "body": ["now=\"$(date \"+%Y-%m-%d-%H%M%S\")\""]
+  },
+  "fail is zero or exit 1": {
+    "prefix": "fail01",
+    "body": ["[ \"\\$fail\" -eq 0 ] || exit 1"]
   }
 }

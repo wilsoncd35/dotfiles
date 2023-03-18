@@ -74,7 +74,8 @@
   "files.associations": {
     ".nycrc": "json",
     "mocha.opts": "shellscript",
-    ".mocharc": "shellscript"
+    ".mocharc": "shellscript",
+    "*.bats": "shellscript"
   },
   "files.defaultLanguage": "markdown",
 
@@ -168,6 +169,7 @@
     "editor.tabSize": 4
   },
 
+  "prettier.resolveGlobalModules": true,
   "pylance.insidersChannel": "off",
   "python.analysis.completeFunctionParens": true,
   "python.analysis.typeCheckingMode": "off",
@@ -300,6 +302,7 @@
   "yaml.schemas": {
     "file:///Users/cwilson/.vscode/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
+  "yaml.format.enable": false,
   "workbench.panel.defaultLocation": "bottom",
   "workbench.colorTheme": "Noctis High Contrast",
   "redhat.telemetry.enabled": false,
@@ -314,6 +317,5 @@
   "wallaby.noAutomaticInstall": true,
   "wallaby.startAutomatically": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "editor.guides.indentation": true,
-  "window.zoomLevel": 1
+  "editor.guides.indentation": true
 }
