@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-#
-# git hook pre-commit.
-#
-
-echo 'Nothing to see here at this time.'

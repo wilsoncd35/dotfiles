@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+#
+# git hook pre-commit.
+#
+fail=0
+
+echo '[df] Begin git hook pre-commit.'
+
+npm run lint || ((fail+=1))
+npm run analyze || ((fail+=1))
+
+if [ "$fail" -eq 0 ]; then
+  echo '[df] git hook pre-commit successful.'
+else
+  echo '[df] git hook pre-commit failed.'
+fi
+
+echo '[df] End git hook pre-commit.'
+
+[ "$fail" -eq 0 ] || exit 1

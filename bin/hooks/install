@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+#
+# Install git hooks.
+#
+fail=0
+
+echo '[df] Begin install git hooks.'
+
+if [ -n "$CI" ]; then
+  echo '[df] CI variable found. git hooks will not be installed.'
+  exit 0
+fi
+
+git config --local core.hooksPath "$(dirname "$0")" || ((fail+=1))
+
+if [ "$fail" -eq 0 ]; then
+  echo '[df] Install git hooks successful.'
+else
+  echo '[ef] Install git hooks failed.'
+fi
+
+
+echo '[df] End install git hooks.'
+
+[ "$fail" -eq 0 ] || exit 1
