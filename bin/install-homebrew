@@ -19,9 +19,11 @@ install_homebrew_programs() {
   programs=(
     ansible
     awk
+    aws-sso-util
     awscli
     bash
     bash-completion@2
+    bats
     curl
     direnv
     fswatch
@@ -48,6 +50,7 @@ install_homebrew_programs() {
     p7zip
     pandoc
     parallel
+    pipx
     poetry
     pyenv
     pyenv-virtualenv
@@ -110,6 +113,7 @@ main() {
 
     echo 'Install casks with homebrew.'
     install_homebrew_casks
+
   fi
 }
 
