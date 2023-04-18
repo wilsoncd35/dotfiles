@@ -56,7 +56,9 @@ install_homebrew_programs() {
     pyenv-virtualenv
     python3
     rabbitmq
+    rbenv
     redis
+    rudy-build
     screen
     shellcheck
     sqlite

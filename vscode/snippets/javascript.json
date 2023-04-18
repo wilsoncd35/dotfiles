@@ -89,7 +89,7 @@
   "mocha it http status code": {
     "prefix": "it http status code",
     "body": [
-      "it('HTTP $1 status code.', function () {",
+      "it('HTTP $1 status code.', async function () {",
       "  expect(this.response).to.have.status($1);",
       "});",
       "$0"
@@ -97,13 +97,13 @@
   },
   "mocha it": {
     "prefix": "it",
-    "body": ["it('$1', function () {", "  $0", "});"],
+    "body": ["it('$1', async function () {", "  $0", "});"],
     "description": "mocha it"
   },
   "mocha it payload": {
     "prefix": "itpayload",
     "body": [
-      "it('payload.', function () {",
+      "it('payload.', async function () {",
       "  expect(requestResponse).to.exist;",
       "  // Capture payload for reporting (report/index.json).",
       "  addContext(this, {",
@@ -120,7 +120,7 @@
   "mocha after payload": {
     "prefix": "afterpayload",
     "body": [
-      "after('payload.', function () {",
+      "after('payload.', async function () {",
       "  expect(requestResponse).to.exist;",
       "  // Capture payload for reporting (report/index.json).",
       "  addContext(this, {",
@@ -136,22 +136,22 @@
   },
   "mocha beforeEach": {
     "prefix": "beforee",
-    "body": ["beforeEach(function () {", "  $0", "});"],
+    "body": ["beforeEach(async function () {", "  $0", "});"],
     "description": "mocha beforeEach"
   },
   "mocha before": {
     "prefix": "before",
-    "body": ["before(function () {", "  $0", "});"],
+    "body": ["before(async function () {", "  $0", "});"],
     "description": "mocha before"
   },
   "mocha afterEach": {
     "prefix": "aftere",
-    "body": ["afterEach(function () {", "  $0", "});"],
+    "body": ["afterEach(async function () {", "  $0", "});"],
     "description": "mocha afterEach"
   },
   "mocha after": {
     "prefix": "after",
-    "body": ["after(function () {", "  $0", "});"],
+    "body": ["after(async function () {", "  $0", "});"],
     "description": "mocha after"
   },
   "chai expect": {
@@ -177,5 +177,9 @@
   "require chai-http": {
     "prefix": "reqchai-http",
     "body": ["const chaiHttp = require('chai-http');"]
+  },
+  "lint rule template": {
+    "prefix": "lrw",
+    "body": ["'$1': 'warn',", "$0"]
   }
 }

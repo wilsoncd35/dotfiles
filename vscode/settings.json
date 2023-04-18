@@ -138,7 +138,6 @@
       "url": "https://on.cypress.io/cypress.schema.json"
     }
   ],
-
   "[dockerfile]": {
     "editor.quickSuggestions": {
       "strings": false,
@@ -160,7 +159,11 @@
   "[shellscript]": {
     "editor.rulers": [80],
     "editor.tabSize": 2,
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
   },
   "npm.autoDetect": "on",
 
@@ -317,5 +320,6 @@
   "wallaby.noAutomaticInstall": true,
   "wallaby.startAutomatically": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "editor.guides.indentation": true
+  "editor.guides.indentation": true,
+  "window.zoomLevel": 1
 }

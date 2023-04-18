@@ -11,6 +11,26 @@ alias dl="cd ~/Downloads"
 alias la="ls -alh"
 alias df="df -h"
 
+alias npmi='npm install'
+alias npmc='npm ci'
+alias npml='npm run lint'
+alias npmt='npm run test'
+alias npmb='npm run build'
+
+alias n14='nvm use 14'
+alias n16='nvm use 16'
+alias n18='nvm use 18'
+
+alias a='aws'
+alias asl='aws sso login'
+# alias k='kubectl'
+# alias kcu='kubectl config use-context'
+# alias kcg='kubectl config get-contexts'
+# alias kgp='kubectl get pods --all-namespaces=false'
+# alias kgpa='kubectl get pods --all-namespaces=true'
+# alias ke='kubectl exec --stdin=true --tty=true --container'
+alias d='docker'
+
 # macOS specific.
 if [ "$(uname)" = 'Darwin' ]; then
   # Hide/show all desktop icons.

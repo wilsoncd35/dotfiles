@@ -26,8 +26,8 @@ lerna-debug.log*
 node_modules/
 
 # Dotenv.
-.env
-.env.test
+#.env
+#.env.test
 
 # Misc.
 .DS_Store

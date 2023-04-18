@@ -18,5 +18,12 @@
   "fail is zero or exit 1": {
     "prefix": "fail01",
     "body": ["[ \"\\$fail\" -eq 0 ] || exit 1"]
+  },
+  "test command available": {
+    "prefix": "command available",
+    "body": [
+      "command -v $1 > /dev/null 2>&1",
+      "$0"
+    ]
   }
 }
