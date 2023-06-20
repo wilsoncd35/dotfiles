@@ -23,7 +23,7 @@ install_homebrew_programs() {
     awscli
     bash
     bash-completion@2
-    bats
+    bats-core
     curl
     direnv
     fswatch
