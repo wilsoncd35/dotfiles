@@ -13,3 +13,5 @@
   excludesfile = ~/.gitignore
 [pager]
 	branch = false
+[push]
+	autoSetupRemote = true
