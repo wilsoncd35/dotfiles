@@ -13,3 +13,5 @@ eval "$(direnv hook bash)"
 
 alias vim='nvim'
 
+. $HOME/tashforcesh
+

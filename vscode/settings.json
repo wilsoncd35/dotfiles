@@ -351,5 +351,18 @@
     "!Split sequence"
   ],
   "aws.telemetry": false,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 2,
+  "snyk.advanced.cliPath": "/Users/cwilson/Library/Application Support/snyk-ls/snyk-macos",
+  "snyk.trustedFolders": [
+    "/Volumes/wilson02/r/itential/cloudops/docker-images",
+    "/Volumes/wilson02/r/itential/devops/ia",
+    "/Volumes/wilson02/r/itential/devops/test",
+    "/Volumes/wilson02/r/itential/devops/apollo",
+    "/Volumes/wilson02/r/itential/cloudops/uat",
+    "/Volumes/wilson02/r/itential/jobmanager/app-lifecycle_manager",
+    "/Volumes/wilson02/r/itential/customersuccess/hoover",
+    "/Volumes/wilson02/r/itential/core/app-admin_essentials",
+    "/Volumes/wilson02/r/itential/jobmanager/app-operations_manager"
+  ],
+  "snyk.yesWelcomeNotification": false
 }

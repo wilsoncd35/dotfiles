@@ -16,3 +16,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 export PATH="$HOME/bin:$HOME/.dotfiles/node_modules/.bin:$PATH"
+
+. $HOME/taskforcesh
+
