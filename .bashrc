@@ -12,5 +12,4 @@ eval "$(direnv hook bash)"
 . "$HOME"/taskforcesh
 
 export DOTFILES_PATH="$HOME/.dotfiles"
-source "$DOTFILES_PATH"/lib/cd.sh
-source "$DOTFILES_PATH"/lib/shell.sh
+source "$DOTFILES_PATH"/env/default/index.sh

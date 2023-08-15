@@ -140,6 +140,5 @@ export MANPAGER='less -X'
 # export PATH="$HOME/bin:$HOME/.dotfiles/node_modules/.bin:$PATH"
 
 export DOTFILES_PATH="$HOME/.dotfiles"
-source "$DOTFILES_PATH"/lib/cd.sh
-source "$DOTFILES_PATH"/lib/shell.sh
+source "$DOTFILES_PATH"/env/default/index.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

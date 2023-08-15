@@ -21,6 +21,12 @@ export CYPRESS_CRASH_REPORTS=0
   alias gac='git add -A && git commit -m'
   alias ge='git-edit-new'
 
+# Python.
+  alias p='python'
+
+# Node.js.
+  alias n='node'
+
 # npm.
   alias npmi='npm install'
   alias npmc='npm ci'
@@ -32,6 +38,7 @@ export CYPRESS_CRASH_REPORTS=0
   alias n14='nvm use 14'
   alias n16='nvm use 16'
   alias n18='nvm use 18'
+  alias n20='nvm use 20'
 
 # AWS CLI.
   alias a='aws'
@@ -73,3 +80,21 @@ export CYPRESS_CRASH_REPORTS=0
     alias wifion="networksetup -setairportpower en0 on"
     alias wifioff="networksetup -setairportpower en0 off"
   fi
+
+#
+# Remove node_modules.
+#
+rmn() {
+  echo 'Removing node_modules...'
+
+  if [ -d node_modules ]; then
+    time rm -rf node_modules
+    if [ "$?" -eq 0 ]; then
+      echo 'Done.'
+    else
+      echo 'Failed.'
+    fi
+  else
+    echo 'node_modules not found. That is OK.'
+  fi
+}
