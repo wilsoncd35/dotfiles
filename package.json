@@ -3,10 +3,7 @@
   "version": "0.2.0-0",
   "private": true,
   "description": "All the things.",
-  "main": {
-    "dotfiles": "./index.mjs"
-  },
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "analyze": "echo 'No code analysis at this time.'",
     "lint": "echo 'No lint at this time.'",
@@ -14,7 +11,7 @@
     "test": "echo 'No test at this time.'"
   },
   "devDependencies": {
-    "bats": "^1.9.0",
+    "bats": "^1.10.0",
     "chokidar-cli": "^3.0.0",
     "jq": "^1.7.2",
     "shellcheck": "^2.2.0"
