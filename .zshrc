@@ -143,7 +143,3 @@ export DOTFILES_PATH="$HOME/.dotfiles"
 source "$DOTFILES_PATH"/lib/cd.sh
 source "$DOTFILES_PATH"/lib/shell.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-alias vim='nvim'
-export PATH="/usr/local/opt/redis@6.2/bin:$PATH"
-# /usr/local/opt/redis@6.2/bin:/Users/cwilson/bin:/Users/cwilson/.dotfiles/node_modules/.bin:/usr/local/opt/ruby/bin:/Users/cwilson/.pyenv/shims:/Users/cwilson/.pyenv/bin:/Users/cwilson/.pyenv/bin:/Users/cwilson/.cargo/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/cwilson/.yarn/bin:/usr/local/sbin
