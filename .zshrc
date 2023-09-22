@@ -2,6 +2,8 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
+# ZSH_THEME='kardan'
+# ZSH_THEME='nanotech'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,7 +73,6 @@ plugins=(
   git
   golang
   helm
-  jira
   kubectl
   macos
   node
@@ -142,3 +143,9 @@ export MANPAGER='less -X'
 export DOTFILES_PATH="$HOME/.dotfiles"
 source "$DOTFILES_PATH"/env/default/index.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# jira-cli
+source "$HOME"/.jirarc
+
+# BullMQ Pro.
+source "$HOME"/.taskforcesh

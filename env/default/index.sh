@@ -61,6 +61,9 @@ export CYPRESS_CRASH_REPORTS=0
   alias de='docker exec'
   alias deit='docker exec --interactve --tty'
 
+# Jira.
+  alias j='jira'
+
 # macOS specific.
   if [ "$(uname)" = 'Darwin' ]; then
     # Hide/show all desktop icons.
