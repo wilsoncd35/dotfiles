@@ -118,6 +118,9 @@ source $ZSH/oh-my-zsh.sh
 # Bash completion.
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+# Do not clear screen on exit man.
+export MANPAGER='less -X'
+
 # pyenv.
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -125,23 +128,10 @@ eval "$(pyenv init --path)"
 
 eval "$(rbenv init - zsh)"
 
-# PATH for the Google Cloud SDK.
-# if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/path.zsh.inc"; fi
-
-# Enable shell command completion for gcloud.
-# if [ -f "$HOME/p/c/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/completion.zsh.inc"; fi
-# export PATH="/usr/local/opt/ruby/bin:$PATH"
-
 # direnv.
 eval "$(direnv hook zsh)"
 
-# Do not clear screen on exit man.
-export MANPAGER='less -X'
-
-# export PATH="$HOME/bin:$HOME/.dotfiles/node_modules/.bin:$PATH"
-
-export DOTFILES_PATH="$HOME/.dotfiles"
-source "$DOTFILES_PATH"/env/default/index.sh
+# nvm.
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # jira-cli
@@ -149,3 +139,10 @@ source "$HOME"/.jirarc
 
 # BullMQ Pro.
 source "$HOME"/.taskforcesh
+
+# These dotfiles.
+export DOTFILES_PATH="$HOME/.dotfiles"
+# Public.
+source "$DOTFILES_PATH"/env/default/index.sh
+# Private.
+source "$HOME/.dotfilesp/env/default/index.sh"
