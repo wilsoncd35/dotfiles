@@ -115,16 +115,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# These dotfiles.
+export DOTFILES_PATH="$HOME/.dotfiles"
+
 # Bash completion.
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Do not clear screen on exit man.
 export MANPAGER='less -X'
-
-# pyenv.
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
 
 eval "$(rbenv init - zsh)"
 
@@ -140,8 +138,6 @@ source "$HOME"/.jirarc
 # BullMQ Pro.
 source "$HOME"/.taskforcesh
 
-# These dotfiles.
-export DOTFILES_PATH="$HOME/.dotfiles"
 # Public.
 source "$DOTFILES_PATH"/env/default/index.sh
 # Private.

@@ -348,7 +348,8 @@
     "!Select",
     "!Select sequence",
     "!Split",
-    "!Split sequence"
+    "!Split sequence",
+    "!reference sequence"
   ],
   "aws.telemetry": false,
   "snyk.advanced.cliPath": "/Users/cwilson/Library/Application Support/snyk-ls/snyk-macos",
@@ -370,5 +371,5 @@
     "/Volumes/wilson02/r/itential/customersuccess/releases"
   ],
   "snyk.yesWelcomeNotification": false,
-  "window.zoomLevel": 2
+  "window.zoomLevel": 1
 }
