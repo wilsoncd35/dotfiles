@@ -142,3 +142,7 @@ export MANPAGER='less -X'
 export DOTFILES_PATH="$HOME/.dotfiles"
 source "$DOTFILES_PATH"/env/default/index.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export GOBIN="$HOME/go/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH:$GOBIN"

@@ -13,3 +13,7 @@ eval "$(direnv hook bash)"
 
 export DOTFILES_PATH="$HOME/.dotfiles"
 source "$DOTFILES_PATH"/env/default/index.sh
+
+export GOBIN="$HOME/go/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH:$GOBIN"
