@@ -1,144 +1,123 @@
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-# ZSH_THEME='kardan'
-# ZSH_THEME='nanotech'
+# Oh my zsh.
+  . "$ZSH"/oh-my-zsh.sh
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Misc.
+  alias la='ls -alh'
+  alias df='df -h'
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# git.
+  alias g='git'
+  alias glod='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'\'
+  alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+  alias gp='git pull'
+  alias ga='git add'
+  alias gc='git commit'
+  alias gca='git commit -a'
+  alias gco='git checkout'
+  alias gcb='git copy-branch-name'
+  alias gb='git branch'
+  alias gs='git status -sb'
+  alias gac='git add -A && git commit -m'
+  alias ge='git-edit-new'
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Python.
+  alias p='python'
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# Node.js.
+  alias n='node'
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# npm.
+  alias npmi='npm install'
+  alias npmc='npm ci'
+  alias npml='npm run lint'
+  alias npmt='npm run test'
+  alias npmb='npm run build'
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Add custom aliases, functions, vars.
-# if [ -d ~/.oh-my-zsh/custom ]; then
-#   unlink ~/.oh-my-zsh/custom/shell.zsh
-#   ln -s ~/.dotfiles/shell ~/.oh-my-zsh/custom/shell.zsh
-# fi
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  aws
-  brew
-  docker
-  docker-compose
-  docker-machine
-  dotenv
-  git
-  golang
-  helm
-  kubectl
-  macos
-  node
-  npm
-  nvm
-  pep8
-  pip
-  pyenv
-  python
-  rsync
-  vscode
-  yarn
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# These dotfiles.
-export DOTFILES_PATH="$HOME/.dotfiles"
-
-# Bash completion.
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
-# Do not clear screen on exit man.
-export MANPAGER='less -X'
-
-eval "$(rbenv init - zsh)"
-
-# direnv.
-eval "$(direnv hook zsh)"
+# vscode.
+  alias c='code'
 
 # nvm.
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  alias n14='nvm use 14'
+  alias n16='nvm use 16'
+  alias n18='nvm use 18'
+  alias n20='nvm use 20'
 
-# jira-cli
-source "$HOME"/.jirarc
+# AWS CLI.
+  alias a='aws'
+  alias asl='aws sso login'
 
-# BullMQ Pro.
-source "$HOME"/.taskforcesh
+# kubectl.
+  alias k='kubectl'
+  alias kcu='kubectl config use-context'
+  alias kcg='kubectl config get-contexts'
+  alias kgp='kubectl get pods --all-namespaces=false'
+  alias kgpa='kubectl get pods --all-namespaces=true'
+  alias ke='kubectl exec --stdin=true --tty=true --container'
 
-# Public.
-source "$DOTFILES_PATH"/env/default/index.sh
-# Private.
-source "$HOME/.dotfilesp/env/default/index.sh"
+# helm.
+  alias h='helm'
+
+# ArgoCD.
+  alias acd='argocd'
+
+# Podman/Docker.
+  alias d='docker'
+  alias dco='docker compose'
+  alias dr='docker run'
+  alias dritd='docker run --interactive --tty --detach'
+  alias dp='docker pull'
+  alias de='docker exec'
+  alias deit='docker exec --interactve --tty'
+
+# Jira.
+  alias j='jira'
+
+# macOS specific.
+  if [[ "$(uname)" == 'Darwin' ]]; then
+    # Hide/show all desktop icons.
+    alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+    alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+    # Open apps.
+    alias chrome="open -a google\ chrome"
+    alias chromed="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
+    alias firefox="open -a firefox"
+    alias safari="open -a safari"
+    alias preview="open -a preview"
+    alias slack="open -a Slack"
+    alias mute="osascript -e 'set volume output muted true'"
+    alias unmute="osascript -e 'set volume output volume 75'"
+    # Lock screen.
+    alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+    alias wifion="networksetup -setairportpower en0 on"
+    alias wifioff="networksetup -setairportpower en0 off"
+  fi
+
+#
+# Remove node_modules.
+#
+rmn() {
+  log.info 'Removing node_modules.'
+
+  if [[ -d node_modules ]]; then
+    time rm -rf node_modules
+    if [ "$?" -eq 0 ]; then
+      log.info 'Done.'
+    else
+      log.info 'Failed.'
+    fi
+  else
+    log.info 'node_modules not found. That is OK.'
+  fi
+}
+
+# pyenv.
+  eval "$(pyenv init --path)"
+
+# direnv.
+  eval "$(direnv hook zsh)"
+
+# nvm.
+  [ -s "$HOME"/.nvm/nvm.sh ] && . "$HOME"/.nvm/nvm.sh
+  [ -s "$HOME"/.nvm/bash_completetion ] && . "$HOME"/.nvm/bash_completion

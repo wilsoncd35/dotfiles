@@ -31,56 +31,6 @@
       "}"
     ]
   },
-  "doc c charlie": {
-    "prefix": "doc c",
-    "body": [
-      "/**",
-      " * @file $1.",
-      " * @license proprietary",
-      " * @copyright © Charlie Wilson. All rights reserved.",
-      " * @module",
-      " */"
-    ],
-    "description": "Insert copyright Charlie in JSDoc."
-  },
-  "doc i itential": {
-    "prefix": "doc i",
-    "body": [
-      "/**",
-      " * @file $1.",
-      " * @license proprietary",
-      " * @copyright © Itential, Inc. All rights reserved.",
-      " * @module",
-      " */"
-    ],
-    "description": "Insert copyright Itential in JSDoc."
-  },
-  "console.log response": {
-    "prefix": "conr",
-    "body": [
-      "console.log(`[response]>>>${JSON.stringify(this.response, null, 2)}`);"
-    ],
-    "description": "Log test response to console. Useful for quick test."
-  },
-  "console.log callback": {
-    "prefix": "conc",
-    "body": [
-      "console.log(`[error]>>>${JSON.stringify(error)}`);",
-      "console.log(`[response]>>>${JSON.stringify(response)}`);",
-      "console.log(`[text]>>>${JSON.stringify(JSON.parse(response.text))}`);"
-    ],
-    "description": "Log output to console. Useful for quick test."
-  },
-  "console.log misc": {
-    "prefix": "conm",
-    "body": ["console.log(`[$1]>>>${JSON.stringify($1, null, 1)}`);"],
-    "description": "Log output to console. Useful for quick test."
-  },
-  "console.log": {
-    "prefix": "cl",
-    "body": ["console.log($1);$0"],
-    "description": "Basic console.log() statement."
-  },
   "mocha describe": {
     "prefix": "desc",
     "body": ["describe('$1', function () {", "  $0", "});"],

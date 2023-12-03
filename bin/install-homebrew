@@ -4,11 +4,11 @@
 # Install homebrew and programs.
 #
 
-install_homebrew() {
+install.homebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 }
 
-install_homebrew_programs() {
+install.homebrew.programs() {
   local taps
   local programs
 
@@ -43,7 +43,6 @@ install_homebrew_programs() {
     lynx
     mas
     maven
-    mongodb-community@3.6
     neovim
     nvm
     openldap
@@ -58,7 +57,6 @@ install_homebrew_programs() {
     pyenv
     pyenv-virtualenv
     python3
-    rabbitmq
     rbenv
     redis
     rudy-build
@@ -87,7 +85,7 @@ install_homebrew_programs() {
 }
 
 
-install_homebrew_casks() {
+install.homebrew.casks() {
   local casks
 
   casks=(
@@ -116,8 +114,8 @@ main() {
     echo 'Install programs with homebrew.'
     install_homebrew_programs
 
-    echo 'Install casks with homebrew.'
-    install_homebrew_casks
+    # echo 'Install casks with homebrew.'
+    # install_homebrew_casks
 
   fi
 }

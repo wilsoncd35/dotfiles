@@ -4,29 +4,17 @@
 # Setup dotfiles.
 #
 
-#
-# Relative paths to libraries.
-#
-  lib_paths=(
-    ./lib/log.sh
-  )
-  for lib_path in "${lib_paths[@]}"; do
-    SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-    if [ -e "$SCRIPT_PATH/$lib_path" ]; then
-      # Is source of a source.
-      source "$SCRIPT_PATH/$lib_path"
-    else
-      # Is a source.
-      SCRIPT_PATH=$(dirname "$0")
-      source "$SCRIPT_PATH/$lib_path"
-    fi
-  done
+# This script.
+  script_path="$(dirname "$0")"
 
-data_path="$HOME/.data"
-backup_path="$data_path/backup"
-archive_path="$data_path/archive"
-mkdir -p "$backup_path"
-mkdir -p "$archive_path"
+# Simple logger.
+  . "$script_path"/../lib/logger/index.sh
+
+# Paths.
+  data_path="$HOME/.data"
+  backup_path="$data_path/backup"
+  archive_path="$data_path/archive"
+  mkdir -p "$backup_path" "$archive_path"
 
 #
 # Backup a thing.
@@ -39,13 +27,13 @@ backup() {
   local now
 
   if [ -z "$src_path" ]; then
-    log 'Backup src path not given.' 'err'
+    log.info 'Backup src path not given.' 'err'
     ((fail+=1))
   fi
 
   [ -z "$dest_path" ] && dest_path="$dest_path_default"
   if [ -z "$dest_path" ]; then
-    log 'Backup dest path not given.' 'err'
+    log.info 'Backup dest path not given.' 'err'
     ((fail+=1))
   fi
 
@@ -57,15 +45,13 @@ backup() {
 }
 
 #
-# General dotfiles, mostly at root of home.
+# General dotfiles, mostly at ~.
 #
-general_setup() {
+setup.general() {
   local dotfile_paths
 
   # Relative path to this setup script.
   dotfile_paths=(
-    .bashrc
-    .bash_profile
     .curlrc
     .eslintignore
     .gitconfig
@@ -79,19 +65,19 @@ general_setup() {
 
   for dotfile_path in "${dotfile_paths[@]}"; do
       if [ -e "$dotfile_path" ]; then
-        log "Backing up $dotfile_path to $backup_path."
+        log.info "Backing up $dotfile_path to $backup_path."
         backup "$dotfile_path" "$backup_path"
 
-        log "Removing $dotfile_path."
+        log.info "Removing $dotfile_path."
         if [ -h "$dotfile_path" ]; then
           unlink "$dotfile_path"
         else
           rm -rf "$dotfile_path"
         fi
       else
-        log "Backup: $dotfile_path does not exist and that is OK."
+        log.info "Backup: $dotfile_path does not exist and that is OK."
       fi
-      log "Linking $HOME/$(dirname "$0")/$dotfile_path at $HOME/$dotfile_path."
+      log.info "Linking $HOME/$(dirname "$0")/$dotfile_path at $HOME/$dotfile_path."
       ln -s "$HOME/$(dirname "$0")/$dotfile_path" "$HOME/$dotfile_path"
     done
 }
@@ -99,9 +85,10 @@ general_setup() {
 #
 # Screenshots.
 #
-screenshot_setup() {
+setup.screenshot() {
     mkdir -p "$data_path/shot"
     [ -h "$HOME/Desktop/shot" ] || ln -s "$data_path/shot" "$HOME/Desktop"
+
     if [ "$(uname)" == 'Darwin' ]; then
       defaults write com.apple.screencapture location "$data_path"/archive/screenshot
       defaults write com.apple.screencapture name "shot"
@@ -109,9 +96,9 @@ screenshot_setup() {
 }
 
 #
-# vscode (Visual Studio Code).
+# vscode.
 #
-vscode_setup() {
+setup.vscode() {
   local configure_path=''
   local configure_path_osx="$HOME/Library/Application Support/Code/User"
   local configure_path_linux="$HOME/.config/Code/User"
@@ -125,7 +112,7 @@ vscode_setup() {
       ;;
   esac
 
-  log "vscode config path is $configure_path."
+  log.info "vscode config path is $configure_path."
   mkdir -p "$configure_path"
 
   # User settings.
@@ -153,14 +140,14 @@ vscode_setup() {
 main() {
   local fail=0
 
-  log 'dotfiles setup begin.'
+  log.info 'dotfiles setup begin.'
 
-  general_setup || ((fail+=1))
-  screenshot_setup || ((fail+=1))
-  vscode_setup || ((fail+=1))
+  setup.general || ((fail+=1))
+  setup.screenshot || ((fail+=1))
+  setup.vscode || ((fail+=1))
 
-  [ "$fail" -eq 0 ] || log 'dotfiles setup failed.' 'fail'
-  log 'dotfiles setup end.'
+  [ "$fail" -eq 0 ] || log.info 'dotfiles setup failed.' 'fail'
+  log.info 'dotfiles setup end.'
 
   [ "$fail" -eq 0 ] || return 1
 }
