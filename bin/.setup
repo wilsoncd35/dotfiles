@@ -5,7 +5,7 @@
 #
 
 # This script.
-  script_path="$(dirname "$0")"
+  script_path="$(pwd)/$(dirname "$0")"
 
 # Simple logger.
   . "$script_path"/../lib/logger/index.sh
@@ -50,7 +50,6 @@ backup() {
 setup.general() {
   local dotfile_paths
 
-  # Relative path to this setup script.
   dotfile_paths=(
     .curlrc
     .eslintignore
@@ -64,21 +63,8 @@ setup.general() {
   )
 
   for dotfile_path in "${dotfile_paths[@]}"; do
-      if [ -e "$dotfile_path" ]; then
-        log.info "Backing up $dotfile_path to $backup_path."
-        backup "$dotfile_path" "$backup_path"
-
-        log.info "Removing $dotfile_path."
-        if [ -h "$dotfile_path" ]; then
-          unlink "$dotfile_path"
-        else
-          rm -rf "$dotfile_path"
-        fi
-      else
-        log.info "Backup: $dotfile_path does not exist and that is OK."
-      fi
-      log.info "Linking $HOME/$(dirname "$0")/$dotfile_path at $HOME/$dotfile_path."
-      ln -s "$HOME/$(dirname "$0")/$dotfile_path" "$HOME/$dotfile_path"
+      unlink "$HOME/$dotfile_path"
+      ln -s "$HOME/.dotfiles/$dotfile_path" "$dotfile_path"
     done
 }
 

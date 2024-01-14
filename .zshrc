@@ -1,6 +1,6 @@
 
 # Oh my zsh.
-  . "$ZSH"/oh-my-zsh.sh
+  . "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 
 # Misc.
