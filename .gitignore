@@ -28,6 +28,7 @@ node_modules/
 # Dotenv.
 #.env
 #.env.test
+# .envrc
 
 # Misc.
 .DS_Store

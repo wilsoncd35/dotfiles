@@ -5,16 +5,16 @@
 #
 fail=0
 
-echo '[df] Begin git hook pre-merge.'
+echo '[. info ] Begin git hook pre-merge.'
 
 npm run test || ((fail+=1))
 
 if [ "$fail" -eq 0 ]; then
-  echo '[df] git hook pre-merge successful.'
+  echo '[. info ] git hook pre-merge successful.'
 else
-  echo '[df] git hook pre-merge failed.'
+  echo '[. info ] git hook pre-merge failed.'
 fi
 
-echo '[df] End git hook pre-merge.'
+echo '[. info ] End git hook pre-merge.'
 
 [ "$fail" -eq 0 ] || exit 1

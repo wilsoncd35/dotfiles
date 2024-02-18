@@ -1,23 +1,32 @@
 #!/usr/bin/env zsh
 
-# nvm.
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+# oh-my-zsh.
+  export ZSH="$HOME/.oh-my-zsh"
+  export ZSH_THEME='robbyrussell'
 
-# Rust.
-PATH="$HOME/.cargo/bin:$PATH"
+# nvm.
+  export NVM_DIR="$HOME/.nvm"
 
 # pyenv.
-export PYENV_ROOT="$HOME/.pyenv"
-PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+  if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    PATH="$PYENV_ROOT/bin:$PATH"
+  fi
 
+# go.
+  if command -v go > /dev/null 2>&1; then
+    PATH="$(go env GOPATH)/bin:$PATH"
+  fi
+# These dotfiles.
+  export DOTFILES_PATH="$HOME/.dotfiles"
 
-# Go.
-PATH="$(go env GOPATH)/bin:$PATH"
+# jira-cli.
+  [ -f "$HOME"/.jirarc ] && . "$HOME"/.jirarc
+
+# BullMQ Pro.
+  [ -f "$HOME"/.taskforcesh ] && . "$HOME"/.taskforcesh
 
 # Personal bins.
-PATH="$HOME/bin:$PATH"
+  PATH="$DOTFILES_PATH/bin:$PATH"
 
 export PATH

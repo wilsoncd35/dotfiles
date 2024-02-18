@@ -3,7 +3,7 @@
     "prefix": "mainModule",
     "description": "Script or module.",
     "body": [
-      "if __name__ == \"__main__\":"
+      "if __name__ == \"__main__\":",
       "    $0"
     ]
   }
