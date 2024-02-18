@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# Rust.
-export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME"/.taskforcesh
 
 # nvm.
 export NVM_DIR="$HOME/.nvm"
@@ -10,12 +9,18 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(rbenv init - bqsh)"
 
+# Rust.
+PATH="$HOME/.cargo/bin:$PATH"
+
 # pyenv.
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
-export PATH="$HOME/bin:$HOME/.dotfiles/node_modules/.bin:$PATH"
+# Go.
+PATH="$(go env GOPATH)/bin:$PATH"
 
-. $HOME/taskforcesh
+# Personal bins.
+PATH="$HOME/bin:$PATH"
 
+export PATH

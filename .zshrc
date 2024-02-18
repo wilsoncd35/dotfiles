@@ -2,6 +2,8 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
+# ZSH_THEME='kardan'
+# ZSH_THEME='nanotech'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,7 +73,6 @@ plugins=(
   git
   golang
   helm
-  jira
   kubectl
   macos
   node
@@ -114,35 +115,30 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# These dotfiles.
+export DOTFILES_PATH="$HOME/.dotfiles"
+
 # Bash completion.
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
-# pyenv.
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-eval "$(rbenv init - zsh)"
-
-# PATH for the Google Cloud SDK.
-# if [ -f "$HOME/p/c/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/path.zsh.inc"; fi
-
-# Enable shell command completion for gcloud.
-# if [ -f "$HOME/p/c/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/p/c/google-cloud-sdk/completion.zsh.inc"; fi
-# export PATH="/usr/local/opt/ruby/bin:$PATH"
-
-# direnv.
-eval "$(direnv hook zsh)"
 
 # Do not clear screen on exit man.
 export MANPAGER='less -X'
 
-# export PATH="$HOME/bin:$HOME/.dotfiles/node_modules/.bin:$PATH"
+eval "$(rbenv init - zsh)"
 
-export DOTFILES_PATH="$HOME/.dotfiles"
-source "$DOTFILES_PATH"/env/default/index.sh
+# direnv.
+eval "$(direnv hook zsh)"
+
+# nvm.
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export GOBIN="$HOME/go/bin"
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH:$GOBIN"
+# jira-cli
+source "$HOME"/.jirarc
+
+# BullMQ Pro.
+source "$HOME"/.taskforcesh
+
+# Public.
+source "$DOTFILES_PATH"/env/default/index.sh
+# Private.
+source "$HOME/.dotfilesp/env/default/index.sh"

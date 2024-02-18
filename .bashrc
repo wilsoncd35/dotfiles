@@ -9,11 +9,15 @@ eval "$(rbenv init - bash)"
 # direnv.
 eval "$(direnv hook bash)"
 
-. "$HOME"/taskforcesh
+# jira-cli
+source "$HOME"/.jirarc
 
+# BullMQ Pro.
+source "$HOME"/.taskforcesh
+
+# These dotfiles.
 export DOTFILES_PATH="$HOME/.dotfiles"
+# Public.
 source "$DOTFILES_PATH"/env/default/index.sh
-
-export GOBIN="$HOME/go/bin"
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH:$GOBIN"
+# Private.
+source "$HOME/.dotfilesp/env/default/index.sh"

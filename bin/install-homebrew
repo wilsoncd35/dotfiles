@@ -14,6 +14,7 @@ install_homebrew_programs() {
 
   taps=(
     mongodb/brew
+    ankitpokhrel/jira-cli
   )
 
   programs=(
@@ -34,6 +35,7 @@ install_homebrew_programs() {
     grep
     helm
     imagemagick
+    jira-cli
     jq
     kubectl
     lha
@@ -48,6 +50,7 @@ install_homebrew_programs() {
     openssh
     openssl
     p7zip
+    packer
     pandoc
     parallel
     pipx

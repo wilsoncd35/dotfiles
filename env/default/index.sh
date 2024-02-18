@@ -34,6 +34,9 @@ export CYPRESS_CRASH_REPORTS=0
   alias npmt='npm run test'
   alias npmb='npm run build'
 
+# vscode.
+  alias c='code'
+
 # nvm.
   alias n14='nvm use 14'
   alias n16='nvm use 16'
@@ -52,6 +55,12 @@ export CYPRESS_CRASH_REPORTS=0
   alias kgpa='kubectl get pods --all-namespaces=true'
   alias ke='kubectl exec --stdin=true --tty=true --container'
 
+# helm.
+  alias h='helm'
+
+# ArgoCD.
+  alias acd='argocd'
+
 # Podman/Docker.
   alias d='docker'
   alias dc='docker compose'
@@ -60,6 +69,9 @@ export CYPRESS_CRASH_REPORTS=0
   alias dp='docker pull'
   alias de='docker exec'
   alias deit='docker exec --interactve --tty'
+
+# Jira.
+  alias j='jira'
 
 # macOS specific.
   if [ "$(uname)" = 'Darwin' ]; then

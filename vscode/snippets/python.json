@@ -1,0 +1,10 @@
+{
+  "main module": {
+    "prefix": "mainModule",
+    "description": "Script or module.",
+    "body": [
+      "if __name__ == \"__main__\":"
+      "    $0"
+    ]
+  }
+}
