@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
 #
-# Install homebrew and programs.
+# Install brews.
 #
+
+# This script path.
+  script_path="$(dirname "$0")"
+
+# Config.
+  exit_code=0
+
+# Simple logger.
+  source "$script_path"/../lib/loggersh/index.sh
 
 install.homebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -11,6 +20,7 @@ install.homebrew() {
 install.homebrew.programs() {
   local taps
   local programs
+  local exit_code=0
 
   taps=(
     mongodb/brew
@@ -30,6 +40,7 @@ install.homebrew.programs() {
     fswatch
     git
     git-gui
+    glab
     glib
     gpg
     grep
@@ -37,6 +48,7 @@ install.homebrew.programs() {
     imagemagick
     jira-cli
     jq
+    kind
     kubectl
     lha
     lua
@@ -53,6 +65,7 @@ install.homebrew.programs() {
     pandoc
     parallel
     pipx
+    podman
     poetry
     pyenv
     pyenv-virtualenv
@@ -67,6 +80,7 @@ install.homebrew.programs() {
     tmux
     trash
     tree
+    trivy
     vim
     wget
     yq
@@ -75,18 +89,22 @@ install.homebrew.programs() {
   )
 
   for t in "${taps[@]}"; do
-    brew tap "$t"
+    brew tap "$t" || exit_code="$?"
   done
 
   for p in "${programs[@]}"; do
-    brew list --versions "$p" > /dev/null
-    [ $? -eq 0 ] || brew install "$p"
+    if brew list --versions "$p" > /dev/null; then
+      brew install "$p" || exit_code="$?"
+    fi
   done
+
+  return "$exit_code"
 }
 
-
+# shellcheck disable=SC2317
 install.homebrew.casks() {
   local casks
+  local exit_code=0
 
   casks=(
     firefox
@@ -96,28 +114,40 @@ install.homebrew.casks() {
   )
 
   for c in "${casks[@]}"; do
-    brew list --cask --versions "$c" > /dev/null
-    [ $? -eq 0 ] || brew cask install "$c"
-  done
-}
-
-main() {
-  if [ "$(uname)" == 'Darwin' ]; then
-
-    # Install homebrew.
-    command -v brew > /dev/null 2>&1
-    if [ $? -ne 0 ]; then
-      echo 'Install homebrew.'
-      install_homebrew
+    if brew list --cask --versions "$c" > /dev/null; then
+      brew cask install "$c" || exit_code="$?"
     fi
+  done
 
-    echo 'Install programs with homebrew.'
-    install_homebrew_programs
-
-    # echo 'Install casks with homebrew.'
-    # install_homebrew_casks
-
-  fi
+  return "$exit_code"
 }
 
-main
+# Begin info.
+  log.info 'Begin install homebrew and programs.'
+
+# Do it. main.
+  # Only on macOS.
+  if [[ "$(uname)" != 'Darwin' ]]; then
+    log.info 'Aborting. This is not a macOS system. We will not install programs via homebrew at this time.'
+    exit 0
+  fi
+
+  # Install homebrew.
+  if command -v brew > /dev/null 2>&1; then
+    log.info 'homebrew command, brew, was found.'
+  else
+    log.info 'Installing homebrew.'
+    install.homebrew || exit_code="$?"
+  fi
+
+  log.info 'Installing programs with homebrew.'
+  install.homebrew.programs || exit_code="$?"
+
+  # echo 'Install casks with homebrew.'
+  # install_homebrew_casks || exit_code="$?"
+
+# End info.
+  log.info "Exit code: $exit_code."
+  log.info 'End install homebrew and programs.'
+
+  exit "$exit_code"

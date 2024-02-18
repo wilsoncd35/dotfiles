@@ -8,7 +8,7 @@
   script_path="$(pwd)/$(dirname "$0")"
 
 # Simple logger.
-  . "$script_path"/../lib/logger/index.sh
+  source "$script_path"/../lib/loggersh/index.sh
 
 # Paths.
   data_path="$HOME/.data"
@@ -51,6 +51,7 @@ setup.general() {
   local dotfile_paths
 
   dotfile_paths=(
+    .bashrc
     .curlrc
     .eslintignore
     .gitconfig

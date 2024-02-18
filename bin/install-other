@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#
+# Install other, misc., things.
+#
+
+tools_npm=(
+  chokidar-cli
+  playwright
+)
+
+for t in "${tools_npm[@]}"; do
+  npm install --global "$t"
+done
