@@ -10,5 +10,5 @@ log.info() {
   [[ -z "$message" ]] && return 64
   [[ -z "$prefix" ]] && prefix='[df info ]'
 
-  echo -e "$prefix $message"
+  printf "%s %s\n" "$prefix" "$message"
 }
