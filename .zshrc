@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 
 # Oh my zsh.
   . "$HOME/.oh-my-zsh/oh-my-zsh.sh"
@@ -34,6 +35,13 @@
   alias npml='npm run lint'
   alias npmt='npm run test'
   alias npmb='npm run build'
+
+# Playwright.
+  alias pw='playwright'
+  alias pwui='playwright test --ui'
+  alias pwt='playwright test'
+  alias pwth='playwright test --headed'
+  alias pwcg='playwright codegen'
 
 # vscode.
   alias c='code'
@@ -121,3 +129,4 @@ rmn() {
 # nvm.
   [ -s "$HOME"/.nvm/nvm.sh ] && . "$HOME"/.nvm/nvm.sh
   [ -s "$HOME"/.nvm/bash_completetion ] && . "$HOME"/.nvm/bash_completion
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
