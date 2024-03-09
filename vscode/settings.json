@@ -96,8 +96,8 @@
   "[go]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true,
-      "source.fixAll": true
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit"
     },
     "editor.renderWhitespace": "selection",
     // Optional: Disable snippets, as they conflict with completion ranking.
@@ -106,7 +106,7 @@
   "[go.mod]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     }
   },
   "gopls": {
@@ -291,9 +291,7 @@
   "todo.embedded.view.icons": true, // Show icons next to todos and types"
 
   "window.restoreWindows": "none",
-
-  "workbench.activityBar.visible": true,
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "multiple",
   "workbench.commandPalette.preserveInput": true,
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
@@ -371,5 +369,6 @@
     "/Volumes/wilson02/r/itential/customersuccess/releases"
   ],
   "snyk.yesWelcomeNotification": false,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "window.confirmSaveUntitledWorkspace": false
 }

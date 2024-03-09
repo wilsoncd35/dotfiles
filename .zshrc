@@ -3,6 +3,8 @@
 # Oh my zsh.
   . "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
+# Things we don't want to commit.
+  . "$HOME/.envrc"
 
 # Misc.
   alias la='ls -alh'
@@ -24,7 +26,7 @@
   alias ge='git-edit-new'
 
 # Python.
-  alias p='python'
+  # alias p='python'
 
 # Node.js.
   alias n='node'
@@ -71,6 +73,11 @@
   alias acd='argocd'
 
 # Podman/Docker.
+  alias p='podman'
+  alias pr='podman run'
+  alias pd='podman pull'
+  alias pe='podman exec'
+  alias pp='podman pod'
   alias d='docker'
   alias dco='docker compose'
   alias dr='docker run'
@@ -124,6 +131,8 @@ rmn() {
   eval "$(pyenv init --path)"
 
 # direnv.
+  # Silent.
+  export DIRENV_LOG_FORMAT=
   eval "$(direnv hook zsh)"
 
 # nvm.

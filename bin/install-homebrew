@@ -42,6 +42,7 @@ install.homebrew.programs() {
     git-gui
     glab
     glib
+    gnu-sed
     gpg
     grep
     helm
@@ -55,6 +56,7 @@ install.homebrew.programs() {
     lynx
     mas
     maven
+    mongocli
     neovim
     nvm
     openldap
