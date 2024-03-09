@@ -77,6 +77,7 @@
   alias pr='podman run'
   alias pd='podman pull'
   alias pe='podman exec'
+  alias pey='podman exec --interactive --tty'
   alias pp='podman pod'
   alias d='docker'
   alias dco='docker compose'
@@ -139,3 +140,7 @@ rmn() {
   [ -s "$HOME"/.nvm/nvm.sh ] && . "$HOME"/.nvm/nvm.sh
   [ -s "$HOME"/.nvm/bash_completetion ] && . "$HOME"/.nvm/bash_completion
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# .NET
+  export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
+  export MONO_GAC_PREFIX="/usr/local"

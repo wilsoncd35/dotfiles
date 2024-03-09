@@ -305,7 +305,7 @@
   },
   "yaml.format.enable": false,
   "workbench.panel.defaultLocation": "bottom",
-  "workbench.colorTheme": "Noctis High Contrast",
+  "workbench.colorTheme": "GitHub Dark Default",
   "redhat.telemetry.enabled": false,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"

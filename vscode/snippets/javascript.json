@@ -131,5 +131,17 @@
   "lint rule template": {
     "prefix": "lrw",
     "body": ["'$1': 'warn',", "$0"]
+  },
+  "document header charlie": {
+    "prefix": "doc c",
+    "body": [
+      "/**",
+      " * @file $1",
+      " * @license MIT",
+      " * @copyright © Charlie Wilson. All rights reserved.",
+      " * @module",
+      " */",
+      "$0"
+    ]
   }
 }

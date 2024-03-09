@@ -46,6 +46,7 @@ install.homebrew.programs() {
     gpg
     grep
     helm
+    internetarchive
     imagemagick
     jira-cli
     jq

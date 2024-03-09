@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+#
+# Setup kind cluster.
+#
+
+KIND_EXPERIMENTAL_PROVIDER=podman kind create cluster --name test01

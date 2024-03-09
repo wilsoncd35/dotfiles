@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#
+# Setup podman.
+#
+
+# New virtual machine.
+  podman machine init  \
+    --cpus 4  \
+    --disk-size 100  \
+    --memory 8256  \
+    --now  \
+    --timezone local  \
+    podmanvm01
