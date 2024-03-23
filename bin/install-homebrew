@@ -38,6 +38,7 @@ install.homebrew.programs() {
     curl
     direnv
     fswatch
+    gh
     git
     git-gui
     glab

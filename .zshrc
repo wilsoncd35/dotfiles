@@ -90,6 +90,9 @@
 # Jira.
   alias j='jira'
 
+# Github.
+  alias ghc='gh copilot'
+
 # macOS specific.
   if [[ "$(uname)" == 'Darwin' ]]; then
     # Hide/show all desktop icons.
@@ -144,3 +147,6 @@ rmn() {
 # .NET
   export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
   export MONO_GAC_PREFIX="/usr/local"
+
+# kind.
+  export KIND_EXPERIMENTAL_PROVIDER=podman
