@@ -3,10 +3,6 @@
     "prefix": "shebang",
     "body": ["#!/usr/bin/env bash"]
   },
-  "shebang zsh": {
-    "prefix": "shebangz",
-    "body": ["#!/usr/bin/env bash"]
-  },
   "now utc": {
     "prefix": "now utc",
     "body": ["now=\"$(date -u \"+%Y-%m-%d-%H%M%S\")\""]
@@ -21,9 +17,6 @@
   },
   "test command available": {
     "prefix": "command available",
-    "body": [
-      "command -v $1 > /dev/null 2>&1",
-      "$0"
-    ]
+    "body": ["command -v $1 > /dev/null 2>&1", "$0"]
   }
 }

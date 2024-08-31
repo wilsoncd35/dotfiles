@@ -3,21 +3,30 @@
   "version": "0.2.0-0",
   "private": true,
   "description": "All the things.",
-  "type": "commonjs",
+  "type": "module",
+  "engines": {
+    "node": ">= 22.7.0 < 23.0.0",
+    "npm": ">= 10.8.2 < 11.0.0"
+  },
   "scripts": {
     "analyze": "echo 'No code analysis at this time.'",
     "lint": "echo 'No lint at this time.'",
     "test": "echo 'No test at this time.'"
   },
-  "devDependencies": {
-    "bats": "^1.10.0",
-    "chai": "^5.1.0",
+  "dependencies": {
+    "bats": "^1.11.0",
+    "chai": "^5.1.1",
+    "chance-cli": "^1.0.7",
+    "chokidar-cli": "^3.0.0",
+    "eslint": "^9.9.1",
     "jq": "^1.7.2",
-    "mocha": "^10.3.0",
+    "mocha": "^10.7.3",
     "mochawesome": "^7.1.3",
-    "nyc": "^15.1.0",
-    "playwright": "^1.41.2",
-    "shellcheck": "^2.2.0",
-    "testdouble": "^3.20.1"
+    "nyc": "^17.0.0",
+    "playwright": "^1.46.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-packagejson": "^2.5.2",
+    "shellcheck": "^3.0.0",
+    "testdouble": "^3.20.2"
   }
 }

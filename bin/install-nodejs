@@ -1,48 +1,52 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 #
 # Install nvm, Node.js, npm, etc.
 #
 
-# This script.
-  script_path="$(dirname "$0")"
+# Config.
+  exit_code=0
+  cgreen="\033[0;32m"
+  creset="\033[0m"
 
-# Simple logger.
-  source "$script_path"/../lib/loggersh/index.sh
+# Simple console logger.
+  log_info() {
+    printf "[${cgreen}d info${creset} ] %s\n" "$1"
+  }
 
 # Config.
-  version_nvm='0.39.7'
+  version_nvm='0.40.1'
   exit_code=0
 
 # Begin info
-  log.info 'Begin nvm, Node.js install.'
+  log_info 'Begin nvm, Node.js install.'
 
 # Do it.
-  log.info 'Installing nvm.'
+  log_info 'Installing nvm.'
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v"$version_nvm"/install.sh | bash || exit_code="$?"
-  source ~/.bashrc
+  . "$HOME"/.bashrc
 
-  log.info 'Installing Node.js 16, gallium.'
-  nvm install --lts=gallium || exit_code="$?"
-  npm install --global --engine-stict=false npm@latest || exit_code="$?"
-
-  log.info 'Installing Node.js 18, hydrogen.'
+  log_info 'Installing Node.js 18, hydrogen.'
   nvm install --lts=hydrogen || exit_code="$?"
   npm install --global --engine-stict=false npm@latest || exit_code="$?"
 
-  log.info 'Installing Node.js 20, iron.'
+  log_info 'Installing Node.js 20, iron.'
   nvm install --lts=iron || exit_code="$?"
   npm install --global --engine-stict=false npm@latest || exit_code="$?"
 
-  nvm alias 16 lts/gallium
+  log_info 'Installing Node.js 22.'
+  nvm install 22.7.0 || exit_code="$?"
+  npm install --global --engine-stict=false npm@latest || exit_code="$?"
+
   nvm alias 18 lts/hydrogen
   nvm alias 20 lts/iron
-  nvm alias default lts/iron
+  nvm alias 22 22.7.0
+  nvm alias default 22
 
   nvm use default
 
 # End info.
-  log.info "Exit code: $exit_code."
-  log.info 'End nvm, Node.js install.'
+  log_info "Exit code: $exit_code."
+  log_info 'End nvm, Node.js install.'
 
   exit "$exit_code"

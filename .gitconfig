@@ -1,6 +1,6 @@
 [user]
 	name = Charlie Wilson
-  email = charlie.wilson@itential.com
+  email = wilsoncd35@gmail.com
 [color]
   ui = true
 [diff]
@@ -12,6 +12,6 @@
 [core]
   excludesfile = ~/.gitignore
 [pager]
-	branch = false
+  branch = false
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true

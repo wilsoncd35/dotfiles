@@ -54,6 +54,7 @@ install.homebrew.programs() {
     kind
     kubectl
     lha
+    lima
     lua
     lynx
     mas
@@ -74,6 +75,7 @@ install.homebrew.programs() {
     pyenv
     pyenv-virtualenv
     python3
+    qemu
     rbenv
     redis
     rudy-build

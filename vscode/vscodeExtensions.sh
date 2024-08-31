@@ -3,33 +3,47 @@
 # Install Visual Studio Code extensions.
 
 extensions=(
-  alexkrechik.cucumberautocomplete
-  bungcip.better-toml
-  DavidAnson.vscode-markdownlint
+  amazonwebservices.aws-toolkit-vscode
+  asciidoctor.asciidoctor-vscode
+  christian-kohler.npm-intellisense
+  davidanson.vscode-markdownlint
   dbaeumer.vscode-eslint
+  denoland.vscode-deno
   donjayamanne.githistory
-  DotJoshJohnson.xml
   eamodio.gitlens
-  EditorConfig.EditorConfig
-  eg2.vscode-npm-script
+  equinusocio.vsc-material-theme
+  equinusocio.vsc-material-theme-icons
   esbenp.prettier-vscode
-  fabiospampinato.vscode-todo-plus
-  googlecloudtools.cloudcode
-  hashicorp.terraform
-  idleberg.applescript
+  github.codespaces
+  github.copilot
+  github.copilot-chat
+  github.github-vscode-theme
+  github.remotehub
+  github.vscode-github-actions
+  github.vscode-pull-request-github
+  goland.go
+  gruntfuggly.todo-tree
+  mechatroner.rainbow-csv
   ms-azuretools.vscode-docker
   ms-kubernetes-tools.vscode-kubernetes-tools
+  ms-python.debugpy
   ms-python.python
+  ms-python.vscode-pylance
+  ms-toolsai.jupyter
+  ms-toolsai.jupyter-keymap
+  ms-toolsai.jupyter-renderers
+  ms-toolsai.vscode-jupyter-cell-tags
+  ms-toolsai.vscode-jupyter-slideshow
   ms-vscode-remote.remote-containers
-  ms-vscode-remote.remote-ssh
-  ms-vscode-remote.remote-ssh-edit
-  ms-vsliveshare.vsliveshare
-  msjsdiag.debugger-for-chrome
-  octref.vetur
+  ms-vscode.azure-repos
+  ms-vscode.cpptools
+  ms-vscode.mono-debug
+  ms-vscode.remote-repositories
+  randomfractalsinc.vscode-data-preview
   redhat.vscode-yaml
+  sumneko.lua
   timonwong.shellcheck
-  vscode-icons-team.vscode-icons
-  goland.go
+  vscodevim.vim
 )
 
 for e in "${extensions[@]}";

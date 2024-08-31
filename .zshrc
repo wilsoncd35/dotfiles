@@ -1,4 +1,24 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
+
+# Config.
+  exit_code=0
+  cgreen="\033[0;32m"
+  creset="\033[0m"
+
+# Simple console logger.
+  log_info() {
+    printf "[${cgreen}d info${creset} ] %s\n" "$1"
+  }
+
+# End info. End early, gracefully.
+  end_info() {
+    log_info 'Done.'
+    log_info 'End .zshrc.'
+    return "$exit_code"
+  }
+
+# Begin info.
+  log_info 'Begin .zshrc.'
 
 # Oh my zsh.
   . "$HOME/.oh-my-zsh/oh-my-zsh.sh"
@@ -53,6 +73,7 @@
   alias n16='nvm use 16'
   alias n18='nvm use 18'
   alias n20='nvm use 20'
+  alias n22='nvm use 22'
 
 # AWS CLI.
   alias a='aws'
@@ -72,6 +93,9 @@
 # ArgoCD.
   alias acd='argocd'
 
+# Argo Workflows.
+  alias aw='argo'
+
 # Podman/Docker.
   alias p='podman'
   alias pr='podman run'
@@ -87,6 +111,8 @@
   alias de='docker exec'
   alias deit='docker exec --interactve --tty'
 
+  export DOCKER_HOST='unix:///var/folders/vk/_vtj8q6n1h113g0vf5yt3b9h0000gq/T/podman/podman001-api.sock'
+
 # Jira.
   alias j='jira'
 
@@ -94,7 +120,7 @@
   alias ghc='gh copilot'
 
 # macOS specific.
-  if [[ "$(uname)" == 'Darwin' ]]; then
+  if [ "$(uname)" = 'Darwin' ]; then
     # Hide/show all desktop icons.
     alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
     alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
@@ -117,17 +143,17 @@
 # Remove node_modules.
 #
 rmn() {
-  log.info 'Removing node_modules.'
+  log_info 'Removing node_modules.'
 
-  if [[ -d node_modules ]]; then
+  if [ -d node_modules ]; then
     time rm -rf node_modules
     if [ "$?" -eq 0 ]; then
-      log.info 'Done.'
+      log_info 'Done.'
     else
-      log.info 'Failed.'
+      log_info 'Failed.'
     fi
   else
-    log.info 'node_modules not found. That is OK.'
+    log_info 'node_modules not found. That is OK.'
   fi
 }
 
@@ -150,3 +176,6 @@ rmn() {
 
 # kind.
   export KIND_EXPERIMENTAL_PROVIDER=podman
+
+# End info.
+  end_info

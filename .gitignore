@@ -13,7 +13,7 @@ report/
 coverage/
 
 # Logs.
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -31,5 +31,8 @@ node_modules/
 # .envrc
 
 # Misc.
+dist/
+tmp/
+build/
 .DS_Store
 Thumbs.db
