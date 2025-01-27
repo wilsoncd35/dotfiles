@@ -6,26 +6,26 @@
   "type": "module",
   "engines": {
     "node": ">= 22.7.0 < 23.0.0",
-    "npm": ">= 10.8.2 < 11.0.0"
+    "npm": ">= 10.8.3 < 11.0.0"
   },
   "scripts": {
     "analyze": "echo 'No code analysis at this time.'",
     "lint": "echo 'No lint at this time.'",
+    "postinstall": "bin/hooks/git/install",
     "test": "echo 'No test at this time.'"
   },
   "dependencies": {
-    "bats": "^1.11.0",
-    "chai": "^5.1.1",
+    "bats": "^1.11.1",
+    "chai": "^5.1.2",
     "chance-cli": "^1.0.7",
     "chokidar-cli": "^3.0.0",
-    "eslint": "^9.9.1",
+    "eslint": "^9.19.0",
     "jq": "^1.7.2",
-    "mocha": "^10.7.3",
+    "mocha": "^11.1.0",
     "mochawesome": "^7.1.3",
-    "nyc": "^17.0.0",
-    "playwright": "^1.46.1",
-    "prettier": "^3.3.3",
-    "prettier-plugin-packagejson": "^2.5.2",
+    "nyc": "^17.1.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-packagejson": "^2.5.8",
     "shellcheck": "^3.0.0",
     "testdouble": "^3.20.2"
   }

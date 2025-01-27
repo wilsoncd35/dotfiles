@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+#
+# Install debian.
+#
+
+# Config.
+  exit_code=0
+
+# Simple logger.
+  log_info() {
+    printf '[info ] %s\n' "$1"
+  }
+
+install_programs() {
+
+  programs=(
+    bash-completion
+    bats
+    curl
+    direnv
+    git
+    imagemagick
+    jq
+    neovim
+    podman
+    yq
+  )
+
+  for p in "${programs[@]}"; do
+    sudo apt install -y "$p" || exit_code="$?"
+  done
+
+  return "$exit_code"
+}
+
+# Begin info.
+  log_info 'Begin install programs.'
+
+# Do it. main.
+
+  log_info 'Installing programs.'
+  sudo apt update -y || exit_code="$?"
+  sudo apt upgrade -y || exit_code="$?"
+  install_programs || exit_code="$?"
+
+# End info.
+  log_info "Exit code: $exit_code."
+  log_info 'End install programs.'
+
+  exit "$exit_code"
