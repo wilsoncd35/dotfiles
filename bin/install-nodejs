@@ -15,7 +15,7 @@
   }
 
 # Config.
-  version_nvm='0.40.1'
+  version_nvm='0.40.2'
   exit_code=0
 
 # Begin info
@@ -35,12 +35,12 @@
   npm install --global --engine-stict=false npm@latest || exit_code="$?"
 
   log_info 'Installing Node.js 22.'
-  nvm install 22.7.0 || exit_code="$?"
+  nvm install --lts=jod || exit_code="$?"
   npm install --global --engine-stict=false npm@latest || exit_code="$?"
 
   nvm alias 18 lts/hydrogen
   nvm alias 20 lts/iron
-  nvm alias 22 22.7.0
+  nvm alias 22 lts/jod
   nvm alias default 22
 
   nvm use default

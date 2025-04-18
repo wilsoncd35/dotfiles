@@ -175,7 +175,17 @@ rmn() {
   export MONO_GAC_PREFIX="/usr/local"
 
 # kind.
-  export KIND_EXPERIMENTAL_PROVIDER=podman
+  # export KIND_EXPERIMENTAL_PROVIDER=podman
+
+# bun completions
+[ -s "/Users/cwilson/.bun/_bun" ] && source "/Users/cwilson/.bun/_bun"
+
+# bun
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+
+# This bin path.
+  export PATH="$HOME/bin:$PATH"
 
 # End info.
   end_info
